@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This project is created for the uploading and reading the live news",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node --watch src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
