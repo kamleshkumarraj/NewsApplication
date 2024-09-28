@@ -10,7 +10,7 @@ import PopularNews from "../../components/news/PopularNews.jsx";
 const CategoryNews = () => {
   const location = useLocation();
   const category = location.state;
-  console.log(category);
+
   const newses = news[category];
 
   return (
@@ -30,6 +30,7 @@ const CategoryNews = () => {
                     newses.length > 0 &&
                     newses.map((item, i) => (
                       <SimpleDetailsNewCard
+                        key={i}
                         news={item}
                         type="details-news"
                         height={200}
@@ -41,7 +42,6 @@ const CategoryNews = () => {
             <div className="w-full xl:w-4/12">
               <div className="w-full pl-0 xl:pl-4">
                 <div className="flex flex-col gap-y-8">
-                  <SearchNews />
 
                   <RecentNews />
                   <div className="p-4 bg-white">

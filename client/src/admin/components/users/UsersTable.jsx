@@ -8,7 +8,7 @@ const UsersTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
   // const [filteredUsers, setFilteredUsers] = useState(userData);
   const [users, setUsers] = useState([]);
-  console.log(users);
+
   const dispatch = useDispatch();
   // now we write code for getting all users from the database or server.
   useEffect(() => {
@@ -26,7 +26,7 @@ const UsersTable = () => {
       }
     })();
   }, []);
-  console.log(users[2]?.avatar?.url);
+  
 
   // const handleSearch = (e) => {
   //   const term = e.target.value.toLowerCase();

@@ -19,6 +19,7 @@ import ProductsPage from "./admin/pages/ProductsPage.jsx";
 import SalesPage from "./admin/pages/SalesPage.jsx";
 import SettingsPage from "./admin/pages/SettingsPage.jsx";
 import UsersPage from "./admin/pages/UsersPage.jsx";
+import SearchNews from "./components/news/SearchNews.jsx";
 
 const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID
 
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "/:category/:single-page",
         element: <Details />,
+      },
+      {
+        path : '/search/:query',
+        element : <SearchNews />
       },
       {
         path: "/login",

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { news } from "../../data";
 
 const RecentNewsFooter = () => {
-  const news = [];
+  const newsData = news['Sports'].slice(0,4);
 
   return (
     <div className="w-full flex flex-col gap-y-[14px]">
@@ -9,16 +10,16 @@ const RecentNewsFooter = () => {
         Recent news
       </div>
       <div className="grid grid-cols-1 pt-3 gap-y-4">
-        {news &&
-          news.length > 0 &&
-          news.map((r, i) => {
+        {newsData &&
+          newsData.length > 0 &&
+          newsData.map((r, i) => {
             if (i < 4) {
               return (
                 <Link key={i} href={`/news/${r.slug}`} className="flex w-full">
                   <div className="group relative overflow-hidden w-[90px] h-[75px]">
-                    <div className="w-[90px] h-[75px] block group-hover:scale-[1.1] transition-all duration-[1s]">
+                    <div className="w-[90px] h-[75px] group-hover:scale-[1.1] transition-all duration-[1s] grid place-content-center">
                       <img
-                        className=""
+                        className="my-auto"
                         src={r.image}
                         alt="images"
                       />

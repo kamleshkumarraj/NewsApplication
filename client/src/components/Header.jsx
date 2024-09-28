@@ -1,7 +1,4 @@
-import React from "react";
-import moment from "moment";
-import { FaFacebookF } from "react-icons/fa";
-import { AiFillYoutube, AiOutlineTwitter } from "react-icons/ai";
+
 import bg_header from "../assets/Images/header-bg.jpg";
 import logo from "../assets/Images/logo.png";
 import adver_image from "../assets/Images/sample-add.jpg";

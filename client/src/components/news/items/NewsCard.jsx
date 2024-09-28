@@ -41,7 +41,7 @@ const NewsCard = ({ item }) => {
 NewsCard.propTypes = {
   item: PropTypes.shape({
     image: PropTypes.string,
-    id : PropTypes.string,
+    id : PropTypes.number,
     category: PropTypes.string,
     title: PropTypes.string,
     date: PropTypes.string,

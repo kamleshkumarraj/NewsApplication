@@ -12,8 +12,7 @@ const AuthLinks = () => {
   const [open, setOpen] = useState(false);
   const user = useSelector(getSelf)
   const status = user?.firstname ? 'authenticated' : 'unauthenticated'
-  console.log(status)
-  console.log(user)
+  
   const dispatch = useDispatch();
   const logoutHandler = async () => {
     const options = {
@@ -22,12 +21,11 @@ const AuthLinks = () => {
     }
     
       const response = await dispatch(apiCalling(options))
-      console.log(response)
+     
       if(response.success){
-        console.log("User logged out successfully")
         toast.success("User logged out successfully")
         dispatch(setUser(undefined))
-        localStorage.setItem('tocken',undefined)
+        localStorage.setItem('token',undefined)
       }else{
         toast.error("User logged out successfully !")
       }
@@ -41,9 +39,9 @@ const AuthLinks = () => {
         </Link>
       ) : (
         <>
-          <Link id="link" to="/write" className={styles.link}>
-            Write
-          </Link>
+          {user.userType=="Author" ?  <Link id="link" to="/write" className={styles.link}>
+            Upload News
+          </Link> : ""}
           <span onClick={() => {logoutHandler()}} id="link" className={styles.link} >
             Logout
           </span>

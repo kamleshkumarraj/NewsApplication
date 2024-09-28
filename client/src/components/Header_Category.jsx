@@ -1,14 +1,16 @@
 "use client";
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import { BsList } from "react-icons/bs";
+import { SearchDataContext } from "../contexts/provideSearchData";
 
 const Header_Category = () => {
   const path = useLocation().pathname;
-  const [state, setState] = useState("");
   const [show, setShow] = useState("");
+  const [search , setSearch] = useState("")
+  const navigate = useNavigate();
   const categories = [
     "Sports",
     "Educations",
@@ -23,6 +25,12 @@ const Header_Category = () => {
   ];
   const data = [];
 
+  const {setSearchQuery} = useContext(SearchDataContext);
+  const handleSearch = (e) => {
+    e.preventDefault()
+    setSearchQuery(search)
+    navigate(`/search/query=${search}`)
+  }
   return (
     <div className="w-full">
       <div className="bg-[#c80000] w-full text-white uppercase font-semibold relative">
@@ -75,15 +83,15 @@ const Header_Category = () => {
                 <form className="flex">
                   <div className="w-[calc(100%-45px)] h-[40px]">
                     <input
-                      value={state}
+                      value={search}
                       required
-                      onChange={(e) => setState(e.target.value)}
+                      onChange={(e) => setSearch(e.target.value)}
                       type="text"
                       placeholder="search"
-                      className="w-full h-full p-2 border outline-none border-slate-300 bg-slate-100"
+                      className="w-full h-full p-2 border outline-none border-slate-300 bg-slate-100 text-[1.4rem]"
                     />
                   </div>
-                  <button className="w-[45px] hover:bg-red-700 cursor-pointer h-[40px] flex justify-center outline-none items-center bg-red-600 text-white text-[2rem]">
+                  <button onClick={handleSearch}  className="w-[45px] hover:bg-red-700 cursor-pointer h-[40px] flex justify-center outline-none items-center bg-red-600 text-white text-[2rem]">
                     <AiOutlineSearch />
                   </button>
                 </form>

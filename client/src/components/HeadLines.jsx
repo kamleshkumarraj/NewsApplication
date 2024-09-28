@@ -25,7 +25,7 @@ const HeadLines = ({ news }) => {
     },
   ]];
   console.log(news)
-  
+  let a=5;
   return (
     <div className="flex flex-wrap bg-white shadow">
       <div className="flex md:w-[170px] w-full bg-[#dddddd] relative after:absolute after:bg-[#dddddd] after:w-[20px] after:left-[160px] after:skew-x-[20deg] after:top-0 after:bottom-0 after:z-30">
@@ -49,9 +49,10 @@ const HeadLines = ({ news }) => {
                   {news[c].length > 0 &&
                     news[c].slice(0,1).map((n, j) => (
                       <Link
+                      key={n.id}
                         className="py-[1.5rem] text-[1.4rem] block font-semibold text-[black] hover:text-[#c80000] pr-12  "
                         to={`/news/`}
-                        key={n}
+                        
                       >
                         {n?.title}
                       </Link>

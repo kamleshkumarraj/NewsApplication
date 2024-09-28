@@ -27,6 +27,7 @@
 
   &:hover{
     color: white;
+    cursor: pointer;
     &::after{
       top: 0;
     }

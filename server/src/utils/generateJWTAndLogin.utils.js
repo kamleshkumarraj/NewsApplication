@@ -1,6 +1,6 @@
 
 export const generateJWTAndLogin = async (res , user) => {
-    const tocken = await user.generateJWTTocken();
+    const token = await user.generateJWTTocken();
 
     const option = {
         expires : new Date(
@@ -10,10 +10,10 @@ export const generateJWTAndLogin = async (res , user) => {
         path : '/'
     }
 
-    res.status(200).cookie('tocken',tocken,option).json({
+    res.status(200).cookie('token',token,option).json({
         success : true,
         message : "User Logged in successfully",
         user,
-        tocken
+        token
     })
 }

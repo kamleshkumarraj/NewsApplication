@@ -1,21 +1,18 @@
-'use client'
-import React, {  useState } from 'react'
-import SimpleDetailsNewCard from './items/SimpleDetailsNewCard'
-import { useSearchParams } from 'react-router-dom'
+import { useContext } from "react"
+import { news } from "../../data"
+import useSearch from "../../hooks/useSearch"
+import SimpleDetailsNewCard from "./items/SimpleDetailsNewCard"
+import { SearchDataContext } from "../../contexts/provideSearchData"
+
 
 const SearchNews = () => {
-
-    const [news, setNews] = useState([])
-    const searchValue = useSearchParams()
-   
-
+   const {filteredData} = useContext(SearchDataContext)
     
-
     return (
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid w-full grid-cols-1 gap-[1.5rem] my-[1rem] md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 px-[2rem]  border-[1px]">
             {
-                news && news.length > 0 && news.map((item, i) => (
-                    <SimpleDetailsNewCard news={item} type="details-news" height={200} />
+                filteredData && filteredData.length > 0 && filteredData.map((item, i) => (
+                    <SimpleDetailsNewCard key={i} news={item} type="details-news" height={200} />
                 ))
             }
         </div>

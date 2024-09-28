@@ -50,13 +50,13 @@ const SimpleDetailsNewCard = ({ news, type, height }) => {
 SimpleDetailsNewCard.propTypes = {
   news: PropTypes.shape({
     image: PropTypes.string,
-    id : PropTypes.string,
+    id : PropTypes.number,
     category: PropTypes.string,
     title: PropTypes.string,
     date: PropTypes.string,
     writerName: PropTypes.string,
   }),
-  height: PropTypes.string,
+  height: PropTypes.number,
   type: PropTypes.string 
 };
 

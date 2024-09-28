@@ -29,9 +29,9 @@ const Category = ({ titleStyle }) => {
         {categories &&
           categories.length > 0 &&
           categories.map((item, i) => (
-            <li className="list-none text-[1.4rem] " key={i}>
+            <li className="list-none text-[1.4rem] text-center" key={i}>
               <Link
-                className="my-[.5rem] block"
+                className="my-[.2rem] block text-center"
                 to={`/category=${item}`}
                 state={item}
               >

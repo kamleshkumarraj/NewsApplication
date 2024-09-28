@@ -3,17 +3,20 @@ import styles from "./header.module.css";
 import facebookImg from '../../assets/Images/facebook.png'
 import instagramImg from '../../assets/Images/instagram.png'
 import youtubeImg from '../../assets/Images/youtube.png'
-import { Link } from "react-router-dom";
 import AuthLinks from "../authLinks/AuthLinks";
 import {useGSAP} from '@gsap/react'
 import gsap from "gsap";
-import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { getSelf } from "../../store/slices/selfHandler.slice";
+import profileImg from '../../assets/Images/profile-photo.png'
+
 
 
 
 
 const BlogHeader = () => {
+  const userData = useSelector(getSelf)
+  const userImg = userData?.avatar?.url
     useGSAP(() =>{
       const timeline = gsap.timeline();
       timeline.from("#nav-image img" , {
@@ -40,9 +43,6 @@ const BlogHeader = () => {
       })
 
     })
-    const location = useLocation();
-    
-    const dispatch = useDispatch();
     // now we write code for logout the user.
     
   return (
@@ -53,13 +53,11 @@ const BlogHeader = () => {
         <img src={facebookImg} alt="tiktok" width={24} height={24} />
         <img src={youtubeImg} alt="youtube" width={24} height={24} />
       </div>
-      <div id="header-text" className={styles.logo}>XENDEK WEB</div>
       <div id="header-link" className={styles.links}>
-       
-        <Link  id="link"  href="/" className={styles.link}>Homepage</Link>
-        <Link id="link" href="/" className={styles.link}>Contact</Link>
-        <Link id="link" href="/" className={styles.link}>About</Link>
         <AuthLinks  />
+        <div id="profile-img">
+          <img src={userImg ? userImg : profileImg} className="w-[4rem] h-[4rem] rounded-full" alt="" />
+        </div>
       </div>
     </div>
   );

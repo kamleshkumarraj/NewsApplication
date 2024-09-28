@@ -45,7 +45,7 @@ const Details = () => {
     setCurrentLang({name : converetedLang.name , code : converetedLang.code})
     
     descriptionTag.current.innerText = convertedData.toString()
-    // console.log(res.data)
+  
     localStorage.setItem('currentLang'  , converetedLang.name)
     localStorage.setItem('currentLangCode' , converetedLang.code)
     
@@ -103,7 +103,6 @@ const Details = () => {
             <div className="w-full xl:w-4/12">
               <div className="w-full pl-0 xl:pl-4">
                 <div className="flex flex-col gap-y-8">
-                  <SearchNews />
                   <RecentNews />
                   <div className="p-4 bg-white">
                     <Category titleStyle={"text-gray-700 font-bold"} />

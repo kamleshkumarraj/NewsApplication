@@ -4,7 +4,7 @@ import SimpleDetailsNewCard from "./items/SimpleDetailsNewCard";
 import NewsCard from "./items/NewsCard";
 
 const DetailsNewsCol = ({ news, category }) => {
-  console.log(news[0].category)
+ 
   return (
     <div className="w-full flex flex-col gap-[14px] pl-2">
       <Title title={category} />

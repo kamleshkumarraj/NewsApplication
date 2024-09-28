@@ -1,7 +1,11 @@
 import React from "react";
+import { news } from "../../data";
 
 const Gallery = () => {
   const images = [];
+  Object.entries(news).forEach(([key , val]) => {
+    images.push(val[0].image)
+  })
 
   return (
     <div className="w-full flex flex-col gap-y-[14px]">
@@ -13,7 +17,7 @@ const Gallery = () => {
           images.length > 0 &&
           images.map((item, i) => (
             <div key={i} className="w-full h-[85px] relative">
-              <img className="" layout="fill" src={item.image} alt="images" />
+              <img className=""  src={item} alt="images" />
             </div>
           ))}
       </div>

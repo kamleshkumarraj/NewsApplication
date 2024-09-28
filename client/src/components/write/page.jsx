@@ -14,14 +14,14 @@ const WritePage = () => {
   const [category, setCategory] = useState("");
 
   const formData = new FormData();
-  console.log(file)
+
   Object.values(file).forEach((file) => formData.append('newsImg' , file))
   formData.append('title',title);
   formData.append('category',category);
   formData.append('summary',summary);
   formData.append('content',content);
-  console.log(file)
-  console.log(formData);
+
+ 
 
   const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ const WritePage = () => {
   
 
   return (
-    <div className="p-[4rem] flex flex-col gap-[4rem]  items-center w-full ">
+    <div className="p-[4rem] bg-[#6b6b746a] flex flex-col gap-[4rem]  items-center w-full ">
       <h1 className="text-[2.4rem] ">Create you news</h1>
       <form
         method="post"

@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <div className="w-full">
       <div className="bg-[#1e1919]">
-        <div className="grid w-full grid-cols-1 gap-12 px-[1.6rem] py-10 md:px-8 lg:grid-cols-4">
+        <div className="grid justify-items-center w-full grid-cols-1 gap-12 px-[1.6rem] py-10 md:px-8 lg:grid-cols-4">
           <div className="w-full">
             <div className="w-full flex flex-col gap-y-[14px]">
               <img
@@ -45,30 +45,11 @@ const Footer = () => {
       </div>
       <div className="bg-[#262323]">
         <div className="flex flex-col items-center justify-between gap-3 px-[1.6rem] py-5 md:px-8 md:flex-row">
-          <div className="flex items-center justify-start text-gray-400 gap-y-2">
-            <span>Copyright © 2023</span>
+          <div className="flex items-center justify-center w-full text-gray-400 gap-y-2 text-[1.4rem] gap-[1rem]">
+            <span className="text-center">Copyright © 2023</span>
             <Link href={"#"}>Learn with Project</Link>
           </div>
-          <div className="flex gap-x-[4px]">
-            <Link
-              className="w-[37px] h-[35px] text-white flex justify-center items-center bg-[#ffffff2b]"
-              to="#"
-            >
-              <FaFacebookF />
-            </Link>
-            <Link
-              className="w-[37px] text-white h-[35px] flex justify-center items-center bg-[#ffffff2b]"
-              to="#"
-            >
-              <AiOutlineTwitter />
-            </Link>
-            <Link
-              className="w-[37px] text-white h-[35px] flex justify-center items-center bg-[#ffffff2b]"
-              to="#"
-            >
-              <AiFillYoutube />
-            </Link>
-          </div>
+          
         </div>
       </div>
     </div>

@@ -8,6 +8,8 @@ import { resetPassword } from "../controllers/authentication/resetPassword.contr
 import { updatePassword } from "../controllers/authentication/updatePassword.controller.js";
 import { verifyEmail } from "../controllers/authentication/verifyEmail.controller.js";
 import { googleAuth } from "../controllers/authentication/googleAuthentication.controller.js";
+import { isLoggedIn } from "../middlewares/authentication/isLoggedIn.middleware.js";
+import { directLogin } from "../controllers/authentication/directlogin.controller.js";
 
 export const authenticationRouter = Router();
 
@@ -19,3 +21,4 @@ authenticationRouter.route('/reser-password/:tocken').post(resetPassword)
 authenticationRouter.route('/update-password').post(updatePassword)
 authenticationRouter.route('/verify-email').post(verifyEmail)
 authenticationRouter.route('/login-google').get(googleAuth)
+authenticationRouter.route('/direct-login').get(isLoggedIn , directLogin)
