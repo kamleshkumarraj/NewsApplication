@@ -1,10 +1,9 @@
 
 import bg_header from "../assets/Images/header-bg.jpg";
-import logo from "../assets/Images/logo.png";
+import logo from "../assets/Images/compLogo.jpg";
 import adver_image from "../assets/Images/sample-add.jpg";
 
 import Header_Category from "./Header_Category";
-import { Link } from "react-router-dom";
 import BlogHeader from "./header/Header";
 
 const Header = () => {
@@ -21,9 +20,9 @@ const Header = () => {
           <div className="flex flex-wrap items-center justify-center">
             <div className="w-full md:w-4/12">
               <div className="flex flex-col items-center justify-center md:items-start">
-                <img className="w-[200px] h-[45px]" alt="logo" src={logo} />
+                <img className="w-[300px] " alt="logo" src={logo} />
                 <h2 className="text-[#cccccc]">
-                  NEWS PORTAL MERN STACK NextJs
+                  
                 </h2>
               </div>
             </div>
