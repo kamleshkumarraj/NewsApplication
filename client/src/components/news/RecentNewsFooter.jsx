@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const RecentNewsFooter = () => {
@@ -20,7 +19,6 @@ const RecentNewsFooter = () => {
                     <div className="w-[90px] h-[75px] block group-hover:scale-[1.1] transition-all duration-[1s]">
                       <img
                         className=""
-                        layout="fill"
                         src={r.image}
                         alt="images"
                       />
@@ -35,7 +33,7 @@ const RecentNewsFooter = () => {
                       <h2 className="text-[1.4rem] font-semibold text-white hover:text-[#c80000]">
                         {r.title}
                       </h2>
-                      <div className="flex text-[1.2rem] font-normal text-white gap-x-2">
+                      <div className="flex text-[1.4rem] font-normal text-white gap-x-2">
                         <span>{r?.date}</span>
                         <span>{r.writerName}</span>
                       </div>
@@ -43,7 +41,7 @@ const RecentNewsFooter = () => {
                   </div>
                 </Link>
               );
-            } else return "hii";
+            } 
           })}
       </div>
     </div>

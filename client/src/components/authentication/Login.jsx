@@ -54,12 +54,12 @@ function Login() {
             navigate("/");
           } else toast.error(data?.message);
         }catch(err){
-          console.log("Get error during accept response")
+          console.log("Get error during accept response" , err)
         }
        
       };
     }catch(err){
-      console.log("Get error during accept response from google")
+      console.log("Get error during accept response from google" , err)
     }
   }
   //! now we write code for authenticating from googel.
@@ -75,22 +75,21 @@ function Login() {
   return (
     <div
       id="loginContainer"
-      className="w-full px-[4rem] "
+      className="w-full px-[4rem] py-[5rem]"
     >
       <div
-        component={"main"}
         className="grid w-full place-content-center"
       >
-        <div id="login-page" className="grid lg:grid-cols-2 grid-cols-1 gap-[10rem] bg-[] items-center justify-center justify-items-center">
+        <div id="login-page" className="grid lg:grid-cols-2 grid-cols-1 gap-[2rem] bg-[] items-center justify-center justify-items-center">
           <div id="img" className="hidden lg:block" style={{ backdropFilter: `blur(2px)` }}>
             <img src={loginImg} alt="" />
           </div>
-          <div id="form">
+          <div id="form" className="grid w-full place-content-center">
             <form
               onSubmit={handleLogin}
               action=""
               style={{boxShadow: `rgba(0, 0, 0, 0.24) 0px 3px 8px`}}
-              className="w-full flex flex-col gap-[1.5rem]  mt-[1rem] border-[1px] border-[#656363b7] p-[2rem] rounded-[1rem] lg:max-w-[60rem]"
+              className="w-full flex flex-col gap-[1.5rem]  mt-[1rem] border-[1px] border-[#656363b7] p-[2rem] rounded-[1rem] lg:min-w-[50rem] "
             >
             <h3
               className=" text-[2.4rem]  space-y-[2rem] text-center"

@@ -5,6 +5,7 @@
 .title {
   color: var(--softTextColor);
   margin-bottom: 30px;
+  font-size: 2rem;
 }
 
 .write {
@@ -15,18 +16,28 @@
 }
 
 .input {
-  padding: 20px;
+  padding-inline: 20px;
+  padding-top: 10px;
   width: 100%;
+  border: .5px solid rgba(0, 0, 0, 0.253);
+  border-radius: .4rem;
+  font-size: 1.8rem;
+  &:focus{
+    outline: none;
+    border: 1.5px solid green;
+    border-radius: .5rem;
+  }
 }
 
 .button {
-  padding: 16px 20px;
+  padding: 14px 30px;
   background-color: teal;
   color: white;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 1.4rem;
 }
 
 .comments{
@@ -35,6 +46,7 @@
 
 .comment{
   margin-bottom: 50px;
+  
 }
 
 .user {
@@ -42,11 +54,16 @@
   align-items: center;
   gap: 20px;
   margin-bottom: 20px;
+  min-width : 5rem;
+  min-height : 5rem;
 }
 
 .image {
   border-radius: 50%;
   object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }
 
 .userInfo {

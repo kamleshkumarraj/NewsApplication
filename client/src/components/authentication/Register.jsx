@@ -1,12 +1,10 @@
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import registerImage from '../../assets/Images/signin-img.svg'
+import registerImage from "../../assets/Images/signin-img.svg";
 import { useDispatch, useSelector } from "react-redux";
-import profilePhoto from '../../assets/Images/profile-photo.png'
+import profilePhoto from "../../assets/Images/profile-photo.png";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import Avatar from 'react-avatar'
 import InputField from "./InputField";
 import { apiCalling } from "../../api/apiCalling.api";
 import { getApiResponse } from "../../store/slices/apiResonseHandler.slice";
@@ -15,7 +13,10 @@ import { FaCamera } from "react-icons/fa";
 function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const apiResponse = useSelector(getApiResponse);
+  const [errorConfig, setErrorConfig] = useState({
+    imageErrror: "",
+  });
   const [formDataLocal, setFormDataLocal] = useState({
     firstname: "",
     middlename: "",
@@ -26,8 +27,9 @@ function Register() {
     confirmPassword: "",
     avatar: "",
   });
-
   const formData = new FormData();
+
+  
 
   Object.entries(formDataLocal).forEach(([key, value]) => {
     formData.append(key, value);
@@ -52,9 +54,7 @@ function Register() {
       toast.error(data.message);
     }
   };
-  const [errorConfig, setErrorConfig] = useState({
-    imageErrror: "",
-  });
+  
   const ValidateImage = (preview) => {
     if (preview && preview.type.startsWith("image/")) {
       setErrorConfig((prev) => ({ ...prev, imageErrror: "" }));
@@ -79,11 +79,11 @@ function Register() {
     }
   };
 
-  const apiResponse = useSelector(getApiResponse);
-  console.log(apiResponse);
+  
+ 
   return (
-    <div id="register-page"  >
-      <div className="grid w-full min-h-[100vh] place-content-center px-[4rem] ">
+    <div id="register-page">
+      <div className="grid my-[5rem] w-full min-h-[100vh] place-content-center px-[4rem] ">
         <div
           id="register-page"
           className="grid lg:grid-cols-2 grid-cols-1 gap-[5rem] place-content-center w-full"
@@ -91,7 +91,10 @@ function Register() {
           <div id="img" className="hidden my-auto lg:block">
             <img src={registerImage} alt="register-image" />
           </div>
-            <div id="form" className="border-[1px] border-[#3a393988] p-[2rem] rounded-[1rem] w-full">
+          <div
+            id="form"
+            className="border-[1px] border-[#3a393988] p-[2rem] rounded-[1rem] w-full"
+          >
             <h4
               className=" text-[2.8rem]  space-y-[2rem]"
               style={{ fontWeight: "400" }}
@@ -113,18 +116,16 @@ function Register() {
                   htmlFor="file"
                   className="relative mx-auto hover:cursor-pointer"
                 >
-                <div id="img" className="w-[20rem] h-[20rem] rounded-full">
-                  <img
-                  src={previewImage}
-                  round = 'full'
-                  className="rounded-full w-[100%] h-[100%]"
-                  
-                  alt="profile-photo"
-                />
-                </div>
-                  
+                  <div id="img" className="w-[20rem] h-[20rem] rounded-full">
+                    <img
+                      src={previewImage}
+                      className="rounded-full w-[100%] h-[100%]"
+                      alt="profile-photo"
+                    />
+                  </div>
+
                   <FaCamera
-                    size={'2rem'}
+                    size={"2rem"}
                     className={
                       previewImage === "/src/assets/profile-photo.png"
                         ? "absolute top-[0%] left-[62%] "
@@ -200,7 +201,6 @@ function Register() {
 
               <button
                 id="button"
-                variant="contained"
                 type="submit"
                 className="w-full py-[1.5rem] rounded-[.7rem]"
                 style={{
@@ -219,10 +219,7 @@ function Register() {
               <p className="font-[600] text-[2rem] py-[.2rem] text-center ">
                 OR,
               </p>
-              <Link
-                to="/login"
-                className="text-[2rem] font-[600] text-center "
-              >
+              <Link to="/login" className="text-[2rem] font-[600] text-center ">
                 Already have an account?
                 <span className="hover:text-[#b703ee] text-[#b5f005]">
                   {" "}
@@ -230,7 +227,7 @@ function Register() {
                 </span>
               </Link>
             </form>
-            </div>
+          </div>
         </div>
       </div>
     </div>

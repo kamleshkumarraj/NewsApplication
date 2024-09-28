@@ -101,22 +101,22 @@ const OrdersTable = () => {
         <table className="min-w-full divide-y divide-gray-700">
           <thead>
             <tr>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Order ID
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Customer
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Total
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Date
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
@@ -130,18 +130,18 @@ const OrdersTable = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] font-medium text-gray-100">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] font-medium text-gray-100">
                   {order.id}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] font-medium text-gray-100">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] font-medium text-gray-100">
                   {order.customer}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] font-medium text-gray-100">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] font-medium text-gray-100">
                   ${order.total.toFixed(2)}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
                   <span
-                    className={`px-2 inline-flex text-[1.2rem] leading-5 font-semibold rounded-full ${
+                    className={`px-2 inline-flex text-[1.4rem] leading-5 font-semibold rounded-full ${
                       order.status === "Delivered"
                         ? "bg-green-100 text-green-800"
                         : order.status === "Processing"
@@ -154,10 +154,10 @@ const OrdersTable = () => {
                     {order.status}
                   </span>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
                   {order.date}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
                   <button className="mr-2 text-indigo-400 hover:text-indigo-300">
                     <Eye size={18} />
                   </button>

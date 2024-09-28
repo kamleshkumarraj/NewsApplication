@@ -1,4 +1,3 @@
-
 import resetImage from "../../assets/Images/reset-password.svg";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -33,15 +32,8 @@ function ResetPassword() {
     } else toast.error(data.message);
   };
   return (
-    <div
-      id="reset"
-      className="p-0 m-0"
-     
-    >
-      <main
-        
-        className="grid w-full h-[100vh] place-content-center p-[2rem]"
-      >
+    <div id="reset" className="p-0 m-0">
+      <main className="grid w-full h-[100vh] place-content-center p-[2rem]">
         <div
           id="register-page"
           className="grid grid-cols-2 gap-[5rem] place-content-center w-full"
@@ -49,9 +41,8 @@ function ResetPassword() {
           <div id="img" className="my-auto">
             <img src={resetImage} alt="register-image" />
           </div>
-          <div className="border-[1px] border-[#252525] rounded-[1rem] p-[2rem]"
-            
-            
+          <div
+            className="border-[1px] border-[#252525] rounded-[1rem] p-[2rem]"
             style={{
               backgroundColor: `rgba(255,255,255,0.1)`,
               backdropFilter: `blur(2px)`,
@@ -59,13 +50,12 @@ function ResetPassword() {
             }}
           >
             <h4
-              
               className=" text-[1.4rem]  space-y-[2rem]"
               style={{ fontWeight: "400" }}
             >
               Reset Your Password !
             </h4>
-            <p className="text-[1.2rem] font-[600]  my-[.8rem] px-[.5rem]">
+            <p className="text-[1.4rem] font-[600]  my-[.8rem] px-[.5rem]">
               This reset password link will expire within 5 minutes. So, please
               enter your new password carefully as soon as possible.
             </p>

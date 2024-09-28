@@ -1,4 +1,3 @@
-import React from 'react'
 import Title from '../Title'
 import SimpleDetailsNewCard from './items/SimpleDetailsNewCard'
 import { news } from '../../data/index.js'
@@ -15,7 +14,7 @@ const PopularNews = ({ type}) => {
                         popularNews.length > 0 && popularNews.map((item, i) => {
                             if (i < 4) {
                                 return <SimpleDetailsNewCard news={item} type={type} item={item} key={i} height={230} />
-                            }else return 'hii'
+                            }
                         })
                     }
                 </div>

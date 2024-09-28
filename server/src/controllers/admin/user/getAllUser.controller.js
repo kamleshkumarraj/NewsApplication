@@ -1,5 +1,5 @@
 import { asyncHandler } from "../../../error/asyncHandler.error.js";
-import ErrorHandler from "../../../error/ErrorHandler.error";
+import ErrorHandler from "../../../error/ErrorHandler.error.js";
 import { userModels } from "../../../models/user.model.js";
 
 export const getAllUsers = asyncHandler(async (req , res , next) => {

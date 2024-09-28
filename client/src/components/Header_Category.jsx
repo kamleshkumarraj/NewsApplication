@@ -34,7 +34,7 @@ const Header_Category = () => {
           </div>
           <div className="flex-wrap hidden lg:flex text-[1.2rem]">
             <Link
-              className={`px-6 font-medium py-[13px] ${
+              className={`px-[2.4rem] font-medium py-[13px] ${
                 path === "/" ? "bg-[#00000026]" : ""
               }`}
               href={"/"}
@@ -45,7 +45,7 @@ const Header_Category = () => {
               categories.map((c, i) => (
                 <Link
                   key={i}
-                  className={`px-6 font-medium py-[13px] ${
+                  className={`px-[2.4rem] font-medium py-[13px] ${
                     path === c.category ? "bg-[#00000026]" : ""
                   }`}
                   to={`/category=${c}`}

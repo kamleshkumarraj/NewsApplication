@@ -88,22 +88,22 @@ const ProductsTable = () => {
         <table className="min-w-full divide-y divide-gray-700">
           <thead>
             <tr>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Name
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Category
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Price
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Stock
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Sales
               </th>
-              <th className="px-6 py-3 text-left text-[1.2rem] font-medium text-gray-400 uppercase tracking-wider">
+              <th className="px-[2.4rem] py-[1.2rem] text-left text-[1.4rem] font-medium text-gray-400 uppercase tracking-wider">
                 Actions
               </th>
             </tr>
@@ -117,7 +117,7 @@ const ProductsTable = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
               >
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] font-medium text-gray-100 flex gap-2 items-center">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] font-medium text-gray-100 flex gap-2 items-center">
                   <img
                     src="https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d2lyZWxlc3MlMjBlYXJidWRzfGVufDB8fDB8fHww"
                     alt="Product img"
@@ -126,20 +126,20 @@ const ProductsTable = () => {
                   {product.name}
                 </td>
 
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
                   {product.category}
                 </td>
 
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
                   ${product.price.toFixed(2)}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
                   {product.stock}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
                   {product.sales}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
+                <td className="px-[2.4rem] py-4 whitespace-nowrap text-[1.4rem] text-gray-300">
                   <button className="text-indigo-400 hover:text-indigo-300 mr-2">
                     <Edit size={18} />
                   </button>

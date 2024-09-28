@@ -28,13 +28,13 @@ function InputField({
       />
       {Note && (
         <div
-          className="text-[1.2rem] px-[1rem] text-red-500 font-[500]"
+          className="text-[1.4rem] px-[1rem] text-red-500 font-[500]"
           id="note"
         >
           Note* : {Note}
         </div>
       )}
-      <p className="text-[1.2rem] text-red-500 font-[500]" id="error">
+      <p className="text-[1.4rem] text-red-500 font-[500]" id="error">
         {error}
       </p>
     </div>
