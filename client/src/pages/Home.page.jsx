@@ -19,7 +19,7 @@ const Home = () => {
           <div className="px-[1.6rem] py-8 md:px-8">
             <div className="flex flex-wrap ">
               <div className="w-full lg:w-6/12">
-                <LatestNews news={news["Education"]} />
+                <LatestNews news={news["Educations"]} />
               </div>
               <div className="w-full mt-5 lg:w-6/12 lg:mt-0">
                 <div className="flex w-full flex-col gap-y-[14px] pl-0 lg:pl-2">
@@ -49,8 +49,8 @@ const Home = () => {
                 </div>
                 <div className="w-full lg:w-4/12">
                   <DetailsNewsCol
-                    news={news["Education"]}
-                    category="Education"
+                    news={news["Educations"]}
+                    category="Educations"
                   />
                 </div>
               </div>
