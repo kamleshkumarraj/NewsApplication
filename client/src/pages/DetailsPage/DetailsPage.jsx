@@ -26,7 +26,8 @@ const Details = () => {
   }
   
 
-  
+  console.log("current" , currentLang)
+  console.log("converted" , converetedLang)
   const translateNews = async () => {
     // now we write code for translating the news in user languuage.
     const description = (descriptionTag.current.innerText)
