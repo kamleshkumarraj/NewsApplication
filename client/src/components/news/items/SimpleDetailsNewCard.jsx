@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 const SimpleDetailsNewCard = ({ news, type, height }) => {
   const description = 'Bangladesh and its people are living in a state of emergency. The country is facing a crisis of coronavirus, which has caused tremendous damage to the economy and healthcare system. The government has taken several measures to contain the spread of the virus, but the situation is still evolving. The country is in a state of crisis, and the people are facing many challenges.'
   return (
+    
     <div className="bg-white shadow">
       <div className="relative overflow-hidden group">
         <div
@@ -17,7 +18,7 @@ const SimpleDetailsNewCard = ({ news, type, height }) => {
         <div className="absolute top-0 left-0 invisible block w-full h-full transition-all duration-300 bg-white cursor-pointer group-hover:visible opacity-5"></div>
         <div className="absolute flex items-start justify-start font-semibold text-white left-5 bottom-4 gap-x-2 gap-y-2">
           <div className="px-[10px] py-[5px]   bg-[#c80000] text-[1.5rem] rounded-[2px]">
-            {news.category}
+            {news?.category}
           </div>
           
         </div>
@@ -44,7 +45,9 @@ const SimpleDetailsNewCard = ({ news, type, height }) => {
         )}
       </div>
     </div>
+          
   );
+          
 };
 
 SimpleDetailsNewCard.propTypes = {
