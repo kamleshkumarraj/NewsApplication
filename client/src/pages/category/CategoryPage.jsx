@@ -10,7 +10,7 @@ import PopularNews from "../../components/news/PopularNews.jsx";
 const CategoryNews = () => {
   const location = useLocation();
   const category = location.state;
-
+  console.log(category);
   const newses = news[category];
 
   return (
