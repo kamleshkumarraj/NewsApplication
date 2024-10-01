@@ -6,6 +6,7 @@ import adver_image from "../assets/Images/sample-add.jpg";
 import Header_Category from "./Header_Category";
 import BlogHeader from "./header/Header";
 
+
 const Header = () => {
   return (
     <div>

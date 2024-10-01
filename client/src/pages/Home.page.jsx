@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import HeadLines from "../components/HeadLines";
 import DetailsNews from "../components/news/DetailsNews";
 import DetailsNewsCol from "../components/news/DetailsNewsCol";
@@ -8,9 +7,10 @@ import SimpleNewsCard from "../components/news/items/SimpleNewsCard";
 import LatestNews from "../components/news/LatestNews";
 import PopularNews from "../components/news/PopularNews";
 import Title from "../components/Title";
-import { news } from "../data/index";
+import { news } from "../data";
 
 const Home = () => {
+
   return (
     <div>
       <main>
@@ -25,7 +25,7 @@ const Home = () => {
                 <div className="flex w-full flex-col gap-y-[14px] pl-0 lg:pl-2">
                   <Title title="Technology" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px] rounded-[1rem] overflow-hidden">
-                    {news["Technology"].map((item, i) => {
+                    {Object.keys(news).length > 0 &&  news["Technology"].map((item, i) => {
                       if (i < 4) {
                         return <SimpleNewsCard item={item} key={i} />;
                       }
@@ -99,7 +99,7 @@ const Home = () => {
                   <div className="pl-2">
                     <Title title="Recent news" />
                     <div className="grid grid-cols-1 gap-y-[14px] mt-4">
-                      {news["Disaster"].slice(0, 4).map((item, i) => (
+                      {Object.keys(news).length > 0 &&  news["Disaster"].slice(0, 4).map((item, i) => (
                         <NewsCard item={item} key={i} />
                       ))}
                     </div>

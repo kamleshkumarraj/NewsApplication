@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import { authenticationRouter } from './routes/authuntication.route.js';
 import { newsHandleByAdminRoute } from './routes/admin/newHandlingRoute.route.js';
 import { userHandleByAdminRoute } from './routes/admin/userhandler.route.js';
+import { userServiceHandlerRoute } from './routes/user/serviceHandling.route.js';
 
 //code for initializing the express server.
 export const app = express();
@@ -32,6 +33,10 @@ app.use('/api/v1/news/admin/',newsHandleByAdminRoute)
 // now we configure routing for handling user by admin.
 app.use('/api/v1/admin/',userHandleByAdminRoute)
 
+// news handle for common use.
+app.use('/api/v1/news/' , userServiceHandlerRoute)
+
+app.use
 
 //use middleware for handling errors
 app.use((err , req , res , next) => {
