@@ -2,18 +2,20 @@ import Breadcrumb from "../../components/Breadcrumb";
 import RecentNews from "../../components/news/RecentNews";
 import Category from "../../components/Category";
 import RelatedNews from "../../components/news/RelatedNews";
-import { news } from "../../data";
 import { useLocation } from "react-router-dom";
 import Comments from "../../components/comments/Comments";
 import { useRef} from "react";
 import NewsNavbar from "../../components/header/NewsNav";
 import {useReactToPrint} from 'react-to-print'
+import { useSelector } from "react-redux";
+import { getAllNews } from "../../store/slices/NewsHandling.slices";
 import News from "./News";
+
 
 
 const Details = () => {
   const newsData = useLocation().state;
-  
+  const news = useSelector(getAllNews)
   const relateNews = news[newsData.category];
   
   
@@ -28,7 +30,12 @@ const Details = () => {
   
   
   return (
+  <>
+  {
+   relateNews.length > 0 && 
     <div>
+    
+    
       <div className="py-4 bg-white shadow-sm">
         <div className="w-full px-[1.6rem] md:px-8">
           <Breadcrumb
@@ -68,6 +75,8 @@ const Details = () => {
         </div>
       </div>
     </div>
+  }
+    </>
   );
 };
 

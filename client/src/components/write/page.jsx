@@ -3,8 +3,9 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { Navigate } from "react-router-dom";
 import { apiCalling } from "../../api/apiCalling.api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { getAllNewsCategories } from "../../store/slices/NewsHandling.slices";
 
 const WritePage = () => {
   const [file, setFile] = useState([]);
@@ -12,6 +13,7 @@ const WritePage = () => {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
+  const categories = useSelector(getAllNewsCategories)
 
   const formData = new FormData();
 
@@ -73,12 +75,11 @@ const WritePage = () => {
               className="text-[1.8rem] font-[600] px-[1.5rem] py-[1rem] foucus:border-none focus:outline-none  border-[#00000022] focus:border-[2px] bg-[#00000089] text-[white] focus:border-[#015107] focus:rounded-[.75rem]  rounded-t-[.5rem]  border-[blue] border-b-[2px] w-full placeholder:text-gray-600"
               onChange={(e) => setCategory(e.target.value)}
             >
-              <option value="style">style</option>
-              <option value="fashion">fashion</option>
-              <option value="food">food</option>
-              <option value="culture">culture</option>
-              <option value="travel">travel</option>
-              <option value="coding">coding</option>
+              {
+                categories.length > 0 && categories.map((cate) => {
+                  return  <option key={cate} value={cate}>{cate}</option>
+                })
+              }
             </select>
           </div>
           <div id="content" className="flex flex-col w-full">

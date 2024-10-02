@@ -8,13 +8,17 @@ import SimpleNewsCard from "../components/news/items/SimpleNewsCard";
 import LatestNews from "../components/news/LatestNews";
 import PopularNews from "../components/news/PopularNews";
 import Title from "../components/Title";
-import { getAllNews } from "../store/slices/NewsHandling.slices";
-import { news } from "../data";
+import { getAllNews, getAllNewsCategories } from "../store/slices/NewsHandling.slices";
 
 
 const Home = () => {
-  // const news = useSelector(getAllNews)
+  const news = useSelector(getAllNews)
+  const allCategories = useSelector(getAllNewsCategories)
   return (
+    <>
+    {
+      Object.keys(news).length > 0 &&
+    
     <div>
       <main>
        { Object.keys(news).length > 0 && <HeadLines news={news} />}
@@ -26,9 +30,9 @@ const Home = () => {
               </div>
               <div className="w-full mt-5 lg:w-6/12 lg:mt-0">
                 <div className="flex w-full flex-col gap-y-[14px] pl-0 lg:pl-2">
-                  <Title title="Technology" />
+                  <Title title="Recent" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px] rounded-[1rem] overflow-hidden">
-                    {Object.keys(news).length > 0 &&  news["Technology"].map((item, i) => {
+                    {Object.keys(news).length > 0 &&  news[allCategories[0]].map((item, i) => {
                       if (i < 4) {
                         return <SimpleNewsCard item={item} key={i} />;
                       }
@@ -100,9 +104,9 @@ const Home = () => {
                 </div>
                 <div className="w-full lg:w-4/12">
                   <div className="pl-2">
-                    <Title title="Recent news" />
+                    <Title title="Educations" />
                     <div className="grid grid-cols-1 gap-y-[14px] mt-4">
-                      {Object.keys(news).length > 0 &&  news["Disaster"].slice(0, 4).map((item, i) => (
+                      {Object.keys(news).length > 0 &&  news["Educations"].slice(0, 4).map((item, i) => (
                         <NewsCard item={item} key={i} />
                       ))}
                     </div>
@@ -114,6 +118,8 @@ const Home = () => {
         </div>
       </main>
     </div>
+  }
+    </>
   );
 };
 export default Home;
