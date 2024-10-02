@@ -9,7 +9,7 @@ import { setUser } from "../../store/slices/selfHandler.slice";
 import loginImg from "../../assets/Images/reporter img.jpg";
 import { useGoogleLogin } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
-import companylogo from "../../assets/Images/compLogo.jpg";
+pa
 
 function Login() {
   const [formData, setFormData] = useState({
