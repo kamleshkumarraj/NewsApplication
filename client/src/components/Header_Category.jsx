@@ -5,25 +5,16 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { IoClose } from "react-icons/io5";
 import { BsList } from "react-icons/bs";
 import { SearchDataContext } from "../contexts/provideSearchData";
+import { useSelector } from "react-redux";
+import { getAllNewsCategories } from "../store/slices/NewsHandling.slices";
 
 const Header_Category = () => {
   const path = useLocation().pathname;
   const [show, setShow] = useState("");
   const [search , setSearch] = useState("")
   const navigate = useNavigate();
-  const categories = [
-    "Sports",
-    "Educations",
-    "Politics",
-    "Agriculture",
-    "Technology",
-    "International",
-    "Health",
-    "Disaster",
-    "Entertainement & Culture",
-    "Bussiness & Economy",
-  ];
-  const data = [];
+  const categories = useSelector(getAllNewsCategories)
+  const data = categories;
 
   const {setSearchQuery} = useContext(SearchDataContext);
   const handleSearch = (e) => {
@@ -40,7 +31,7 @@ const Header_Category = () => {
           >
             <BsList />
           </div>
-          <div className="flex-wrap hidden lg:flex text-[1.2rem]">
+          <div className="flex-wrap hidden xl:flex text-[1.2rem]">
             <Link
               className={`px-[2.4rem] font-medium py-[13px] ${
                 path === "/" ? "bg-[#00000026]" : ""
@@ -101,9 +92,9 @@ const Header_Category = () => {
         </div>
       </div>
       {
-        <div className="flex flex-wrap lg:hidden py-2 px-[30px]">
+        <div className="flex flex-wrap xl:hidden py-2 px-[20px] gap-[1rem]">
           <Link
-            className={`px-[1.6rem] font-medium py-[5px] ${
+            className={` text-[1.6rem] px-[1rem] py-[.5rem] border-[.5px] border-[#0000002a] ${
               path === "/" ? "bg-[#00000026]" : ""
             }`}
             href={"/"}
@@ -113,12 +104,13 @@ const Header_Category = () => {
           {data.map((c, i) => (
             <Link
               key={c.id}
-              className={`px-[1.6rem] font-medium py-[5px] ${
-                path === c.name ? "bg-[#00000026]" : ""
+              className={`text-[1.6rem] px-[1rem] py-[.5rem] border-[.5px] border-[#0000002a] rounded-[.5rem] hover:bg-[#5f5e5e22]  ${
+                path === c ? "bg-[#00000026]" : ""
               }`}
-              href={"/"}
+              to={`/category=${c}`}
+              state={c}
             >
-              {c.name}
+              {c}
             </Link>
           ))}
         </div>

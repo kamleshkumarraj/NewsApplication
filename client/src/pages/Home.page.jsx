@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import HeadLines from "../components/HeadLines";
 import DetailsNews from "../components/news/DetailsNews";
 import DetailsNewsCol from "../components/news/DetailsNewsCol";
@@ -7,14 +8,16 @@ import SimpleNewsCard from "../components/news/items/SimpleNewsCard";
 import LatestNews from "../components/news/LatestNews";
 import PopularNews from "../components/news/PopularNews";
 import Title from "../components/Title";
+import { getAllNews } from "../store/slices/NewsHandling.slices";
 import { news } from "../data";
 
-const Home = () => {
 
+const Home = () => {
+  // const news = useSelector(getAllNews)
   return (
     <div>
       <main>
-        <HeadLines news={news} />
+       { Object.keys(news).length > 0 && <HeadLines news={news} />}
         <div className="bg-slate-100">
           <div className="px-[1.6rem] py-8 md:px-8">
             <div className="flex flex-wrap ">

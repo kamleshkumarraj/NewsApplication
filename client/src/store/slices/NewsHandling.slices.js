@@ -8,11 +8,15 @@ const slice = createSlice({
     },
     reducers : {
         setNewsList : (state , action) => {
-            state.news = action.payload;
+            const {category , data } = action.payload;
+               state.news = {...state.news , [category] : data}
+            //alternate way for changing.
+            // state.news[category] = data
+            
         },
         changeLanguage : (state , action) => {
             // const data = action.payload;
-            console.log(state.news)
+            
             Object.keys(state.news).map((category) => {
                 state.news[category].map((newsItem) => {
                     newsItem.title = "Hello"
@@ -31,3 +35,4 @@ const slice = createSlice({
 export const newsHandlerSlice = slice.reducer
 export const {changeLanguage , setNewsList , setNewsCategories} = slice.actions
 export const getAllNews = (state) => state.newsList.news
+export const getAllNewsCategories = (state) => state.newsList.newsCategories

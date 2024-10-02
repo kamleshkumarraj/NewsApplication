@@ -2,7 +2,6 @@
 import bg_header from "../assets/Images/header-bg.jpg";
 import logo from "../assets/Images/compLogo.jpg";
 import adver_image from "../assets/Images/sample-add.jpg";
-
 import Header_Category from "./Header_Category";
 import BlogHeader from "./header/Header";
 
