@@ -47,55 +47,100 @@ const Footer = () => {
                   the world with us.
                 </span>
               </h2>
-              <hr style={{ borderColor: 'red', borderWidth: '2px', marginBottom: '1px' }} />
-<h2 style={{ color: 'white', fontSize: '32px', marginBottom: '2px' }}>Contact Us</h2>
-<div style={{ display: 'flex', gap: '15px' }}>
-  <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-    <img
-      src={facebookImg}
-      alt="facebook"
-      width={24}
-      height={24}
-      style={{ cursor: 'pointer', transition: 'transform 0.3s' }}
-      onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2)')}
-      onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
-    />
-  </a>
-  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-    <img
-      src={instagramImg}
-      alt="instagram"
-      width={24}
-      height={24}
-      style={{ cursor: 'pointer', transition: 'transform 0.3s' }}
-      onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2)')}
-      onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
-    />
-  </a>
-  <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
-    <img
-      src={facebookImg}
-      alt="tiktok"
-      width={24}
-      height={24}
-      style={{ cursor: 'pointer', transition: 'transform 0.3s' }}
-      onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2)')}
-      onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
-    />
-  </a>
-  <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
-    <img
-      src={youtubeImg}
-      alt="youtube"
-      width={24}
-      height={24}
-      style={{ cursor: 'pointer', transition: 'transform 0.3s' }}
-      onMouseEnter={(e) => (e.target.style.transform = 'scale(1.2)')}
-      onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
-    />
-  </a>
-</div>
-
+              <hr
+                style={{
+                  borderColor: "red",
+                  borderWidth: "2px",
+                  marginBottom: "1px",
+                }}
+              />
+              <h2
+                style={{
+                  color: "white",
+                  fontSize: "32px",
+                  marginBottom: "2px",
+                }}
+              >
+                Contact Us
+              </h2>
+              <div style={{ display: "flex", gap: "15px" }}>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={facebookImg}
+                    alt="facebook"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.transform = "scale(1)")
+                    }
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={instagramImg}
+                    alt="instagram"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.transform = "scale(1)")
+                    }
+                  />
+                </a>
+                <a
+                  href="https://www.tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={facebookImg}
+                    alt="tiktok"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.transform = "scale(1)")
+                    }
+                  />
+                </a>
+                <a
+                  href="https://www.youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={youtubeImg}
+                    alt="youtube"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.transform = "scale(1)")
+                    }
+                  />
+                </a>
+              </div>
             </div>
           </div>
           <Gallery />
