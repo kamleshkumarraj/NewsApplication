@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import registerImage from "../../assets/Images/signin-img.svg";
 import { useDispatch, useSelector } from "react-redux";
 import profilePhoto from "../../assets/Images/profile-photo.png";
 import { toast } from "react-toastify";
@@ -9,6 +8,7 @@ import InputField from "./InputField";
 import { apiCalling } from "../../api/apiCalling.api";
 import { getApiResponse } from "../../store/slices/apiResonseHandler.slice";
 import { FaCamera } from "react-icons/fa";
+import companylogo from "../../assets/Images/compLogo.jpg";
 
 function Register() {
   const dispatch = useDispatch();
@@ -81,157 +81,157 @@ function Register() {
 
   
  
-  return (
-    <div id="register-page">
-      <div className="grid my-[5rem] w-full min-h-[100vh] place-content-center px-[4rem] ">
-        <div
-          id="register-page"
-          className="grid lg:grid-cols-2 grid-cols-1 gap-[5rem] place-content-center w-full"
-        >
-          <div id="img" className="hidden my-auto lg:block">
-            <img src={registerImage} alt="register-image" />
-          </div>
-          <div
-            id="form"
-            className="border-[1px] border-[#3a393988] p-[2rem] rounded-[1rem] w-full"
-          >
-            <h4
-              className=" text-[2.8rem]  space-y-[2rem]"
-              style={{ fontWeight: "400" }}
-            >
-              Welcome Users!
-            </h4>
-            <form
-              method="post"
-              encType="multipart/form-data"
-              action="http://localhost:5000/api/v1/auth/register"
-              onSubmit={handleSubmit}
-              className="w-full flex flex-col gap-[2rem] mt-[1rem] justify-center"
-            >
-              <div
-                id="avtar-field"
-                className="flex gap-[.5rem] flex-col justify-center rounded-full"
-              >
-                <label
-                  htmlFor="file"
-                  className="relative mx-auto hover:cursor-pointer"
-                >
-                  <div id="img" className="w-[20rem] h-[20rem] rounded-full">
-                    <img
-                      src={previewImage}
-                      className="rounded-full w-[100%] h-[100%]"
-                      alt="profile-photo"
-                    />
-                  </div>
-
-                  <FaCamera
-                    size={"2rem"}
-                    className={
-                      previewImage === "/src/assets/profile-photo.png"
-                        ? "absolute top-[0%] left-[62%] "
-                        : "hidden"
-                    }
-                  />
-                </label>
-
-                <input
-                  onInput={handleImage}
-                  id="file"
-                  className="hidden"
-                  type="file"
-                  name="avatar"
-                />
-                <p
-                  id="img-error"
-                  className="font-[600] text-[1.6rem] text-[red] text-center my-[.5rem]"
-                >
-                  {errorConfig.imageErrror}
-                </p>
+return (
+  <div
+    id="register-page"
+    className="w-full min-h-screen flex justify-center items-center bg-cover bg-center"
+    style={{
+      backgroundImage: `url('https://img.freepik.com/premium-photo/breaking-news-graphic-with-red-background-dark-red-text_1106493-468434.jpg?w=1060')`, // Path to your background image
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+  >
+    <div className="w-full max-w-6xl p-8 bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl mx-auto">
+      <div className="w-full grid lg:grid-cols-1 grid-cols-1">
+        {/* Form Section */}
+        <div id="form" className="flex flex-col justify-center w-full">
+          <div className="flex justify-center">
+                <img src={companylogo} alt="Company Logo" className="w-48" />
               </div>
+          <h4 className="text-4xl font-semibold text-gray-800 mb-8 text-center">
+            Welcome Users!
+          </h4>
+
+          <form
+            method="post"
+            encType="multipart/form-data"
+            action="http://localhost:5000/api/v1/auth/register"
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-6 w-full"
+          >
+            {/* Avatar Upload */}
+            <div className="flex flex-col items-center">
+              <label htmlFor="file" className="relative cursor-pointer">
+                <div className="w-40 h-40 rounded-full overflow-hidden shadow-lg">
+                  <img
+                    src={previewImage}
+                    className="w-full h-full object-cover"
+                    alt="profile-photo"
+                  />
+                </div>
+                <FaCamera
+                  size={"2rem"}
+                  className={
+                    previewImage === "/src/assets/profile-photo.png"
+                      ? "absolute top-[0%] left-[62%]"
+                      : "hidden"
+                  }
+                />
+              </label>
+              <input
+                onInput={handleImage}
+                id="file"
+                className="hidden"
+                type="file"
+                name="avatar"
+              />
+              <p className="text-red-500 text-sm mt-2">{errorConfig.imageErrror}</p>
+            </div>
+
+            {/* Two Input Fields in One Row */}
+            <div className="grid grid-cols-2 gap-4 w-full">
               <InputField
-                placeholder={"Enter your firstname*"}
-                name={"firstname"}
+                placeholder="Enter your firstname*"
+                name="firstname"
                 value={formDataLocal.firstname}
                 setValue={setFormDataLocal}
-                type={"text"}
+                type="text"
+                className="w-full p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <InputField
-                placeholder={"Enter your middlename"}
-                name={"middlename"}
-                value={formDataLocal.middlename}
-                setValue={setFormDataLocal}
-                type={"text"}
-              />
-              <InputField
-                placeholder={"Enter your lastname*"}
-                name={"lastname"}
+                placeholder="Enter your lastname*"
+                name="lastname"
                 value={formDataLocal.lastname}
                 setValue={setFormDataLocal}
-                type={"text"}
+                type="text"
+                className="w-full p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <InputField
-                placeholder={"Enter your username*"}
-                name={"username"}
-                value={formDataLocal.username}
-                setValue={setFormDataLocal}
-                type={"text"}
-                Note={"Username must be unique!"}
-              />
-              <InputField
-                placeholder={"Enter your email*"}
-                name={"email"}
-                value={formDataLocal.email}
-                setValue={setFormDataLocal}
-                type={"email"}
-              />
-              <InputField
-                placeholder={"Enter your password*"}
-                name={"password"}
-                value={formDataLocal.password}
-                setValue={setFormDataLocal}
-                type={"password"}
-              />
-              <InputField
-                placeholder={"Enter your confirm password*"}
-                name={"confirmPassword"}
-                value={formDataLocal.confirmPassword}
-                setValue={setFormDataLocal}
-                type={"password"}
-              />
+            </div>
 
-              <button
-                id="button"
-                type="submit"
-                className="w-full py-[1.5rem] rounded-[.7rem]"
-                style={{
-                  fontSize: "2rem",
-                  background: `linear-gradient(45deg , #5468FF ,#59C3FF)`,
-                  ":hover": {
-                    background: `linear-gradient(45deg , #59C3FF ,#5468FF)`,
-                  },
-                }}
-              >
-                {apiResponse?.apiStatus === true ? "Submitting..." : "Submit"}
-                {apiResponse?.apiStatus && (
-                  <div className="absolute left-[65%] loader"></div>
-                )}
-              </button>
-              <p className="font-[600] text-[2rem] py-[.2rem] text-center ">
-                OR,
-              </p>
-              <Link to="/login" className="text-[2rem] font-[600] text-center ">
-                Already have an account?
-                <span className="hover:text-[#b703ee] text-[#b5f005]">
-                  {" "}
-                  Login Now
-                </span>
-              </Link>
-            </form>
-          </div>
+            {/* Remaining Input Fields */}
+            <InputField
+              placeholder="Enter your middlename"
+              name="middlename"
+              value={formDataLocal.middlename}
+              setValue={setFormDataLocal}
+              type="text"
+              className="w-full p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <InputField
+              placeholder="Enter your username*"
+              name="username"
+              value={formDataLocal.username}
+              setValue={setFormDataLocal}
+              type="text"
+              className="w-full p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              Note="Username must be unique!"
+            />
+            <InputField
+              placeholder="Enter your email*"
+              name="email"
+              value={formDataLocal.email}
+              setValue={setFormDataLocal}
+              type="email"
+              className="w-full p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <InputField
+              placeholder="Enter your password*"
+              name="password"
+              value={formDataLocal.password}
+              setValue={setFormDataLocal}
+              type="password"
+              className="w-full p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <InputField
+              placeholder="Enter your confirm password*"
+              name="confirmPassword"
+              value={formDataLocal.confirmPassword}
+              setValue={setFormDataLocal}
+              type="password"
+              className="w-full p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+
+            {/* Submit Button */}
+            <button
+              id="button"
+              type="submit"
+              className="w-full py-4 rounded-lg text-white font-semibold"
+              style={{
+                fontSize: "1.25rem",
+                background: "linear-gradient(45deg, #5468FF, #59C3FF)",
+                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+              }}
+            >
+              {apiResponse?.apiStatus === true ? "Submitting..." : "Submit"}
+            </button>
+
+            {/* Divider */}
+            <p className="text-center text-lg font-semibold text-gray-600">OR</p>
+
+            {/* Redirect to Login */}
+            <Link to="/login" className="text-center text-lg font-semibold">
+              Already have an account?{" "}
+              <span className="text-blue-600 hover:underline">Login Now</span>
+            </Link>
+          </form>
         </div>
       </div>
     </div>
-  );
+  </div>
+);
+
+
+
 }
 
 export default Register;
