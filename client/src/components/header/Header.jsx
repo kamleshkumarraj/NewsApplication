@@ -1,15 +1,16 @@
 
 import styles from "./header.module.css";
-import facebookImg from '../../assets/Images/facebook.png'
-import instagramImg from '../../assets/Images/instagram.png'
-import youtubeImg from '../../assets/Images/youtube.png'
+// import facebookImg from '../../assets/Images/facebook.png'
+// import instagramImg from '../../assets/Images/instagram.png'
+// import youtubeImg from '../../assets/Images/youtube.png'
+// import { FaBarsStaggered } from "react-icons/fa6";
 import AuthLinks from "../authLinks/AuthLinks";
 import {useGSAP} from '@gsap/react'
 import gsap from "gsap";
 import { useSelector } from "react-redux";
 import { getSelf } from "../../store/slices/selfHandler.slice";
 import profileImg from '../../assets/Images/profile-photo.png'
-import { FaBarsStaggered } from "react-icons/fa6";
+
 import { useState } from "react";
 import { TbWorld } from "react-icons/tb";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -49,17 +50,17 @@ const BlogHeader = () => {
       })
 
     })
-    const langList = ['India' , "Russia" , "America" , "Canada" , "Bangladesh" , "Australia" , "China" , "Japan" , "Korea" , "Spain" , "France" , "Germany" ]
+    const langList = ['Bangladesh' , "America" , "India" , "Canada", "Australia" , "China" , "Japan" , "Korea" , "Spain" , "France" , "Germany" ]
     // now we write code for logout the user.
     
   return (
     <div className={styles.container} >
-      <div id="nav-image" className={styles.social}>
+      {/* <div id="nav-image" className={styles.social}>
         <img src={facebookImg} alt="facebook" width={24} height={24} />
         <img src={instagramImg} alt="instagram" width={24} height={24} />
         <img src={facebookImg} alt="tiktok" width={24} height={24} />
         <img src={youtubeImg} alt="youtube" width={24} height={24} />
-      </div>
+      </div> */}
       <div id="header-link" className={styles.links}>
       <div className="relative inline-block">
       {/* Menu Button */}
