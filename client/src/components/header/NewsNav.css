@@ -1,0 +1,11 @@
+#share-btn:hover{
+    #share-box{
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        &:hover{
+            display: block;
+            visibility: visible;
+        }
+    }
+}

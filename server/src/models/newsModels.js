@@ -5,22 +5,21 @@ const newsSchema =  new mongoose.Schema({
         type : String,
         required : true,
     },
-    content : {
+    description : {
         type : String,
         required : true,
     },
     summary : {
         type : String,
-        required : true
     },
     status : {
         type : String,
         enum : ['draft', 'published', 'archive'],
+        default : 'draft',
        
     },
     category : {
         type : String,
-        enum : ['style' , 'fashion' , 'food' , 'travel' , 'culture' , 'coding'],
         required  :true
     },
     viewCount : {
@@ -30,6 +29,10 @@ const newsSchema =  new mongoose.Schema({
     commentCount : {
         type : Number,
         default : 0
+    },
+    image : {
+        type : String,
+        required : true
     },
     featureImage : {
         publicId :{
@@ -61,9 +64,9 @@ const newsSchema =  new mongoose.Schema({
 
     }],
     
-    createdBy : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : "usersModels"
+    writerName : {
+        type : String,
+        
     }
 }, {timestamps : true})
 

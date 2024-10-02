@@ -14,7 +14,8 @@ import { news } from "./data";
 function App() {
   const dispatch = useDispatch()
   const token = localStorage.getItem("token");
-
+  const [newsData , setNewsData] = useState([]);
+  console.log(newsData)
   useEffect(() => {
     (async function login(){
       const options = {
@@ -29,6 +30,21 @@ function App() {
   })
   useEffect(() => {
     dispatch(setNewsList(news))
+  },[])
+
+  //! now we write code for fetching all news from database and server.
+  useEffect(() => {
+    (async function getAllNews(){
+      const options = {
+        method : "GET",
+        url : 'http://localhost:5000/api/v1/news/get-all'
+      }
+      const response = await dispatch(apiCalling(options))
+      console.log(response.data)
+      if(response?.success) setNewsData(response?.data)
+        else console.log("We getting error during fetching news from server !")
+      
+    })()
   },[])
 
   

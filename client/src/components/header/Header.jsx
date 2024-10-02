@@ -91,8 +91,8 @@ const BlogHeader = () => {
             langList.map((item) => (
               <div id="menu-item" className="flex gap-[1rem] border-b-[.5px] border-[#00000013] my-[1rem]" key={item}>
                 <input onChange={(e) => setSelectLang(e.target.value)}
-                 id="radio" value={item} name="lang" type="radio" />
-                <label htmlFor="radio">{item}</label>
+                 id={item} value={item} name="lang" type="radio" />
+                <label  id={item}>{item}</label>
               </div>
             ))
           }

@@ -7,7 +7,7 @@ export const cerateNews = asyncHandler(async (req , res , next) => {
 
     const newsData = {title , content , summary , category , id : req.user.id}
     
-    const news = await newsModels.create(newsData)
+    const news = await newsModels.create(req.body)
     if(!news) return next(new ErrorHandler("News creation failed !",402))
     res.status(200).json({
         success : true,
