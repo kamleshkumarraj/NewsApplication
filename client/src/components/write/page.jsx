@@ -1,7 +1,6 @@
 import "react-quill/dist/quill.bubble.css";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
 import { apiCalling } from "../../api/apiCalling.api";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
@@ -13,21 +12,18 @@ const WritePage = () => {
   const [content, setContent] = useState("");
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
-  const categories = useSelector(getAllNewsCategories)
+  const categories = useSelector(getAllNewsCategories);
 
   const formData = new FormData();
 
-  Object.values(file).forEach((file) => formData.append('newsImg' , file))
-  formData.append('title',title);
-  formData.append('category',category);
-  formData.append('summary',summary);
-  formData.append('content',content);
-
- 
-
+  formData.append("newsImg", file);
+  formData.append("title", title);
+  formData.append("category", category);
+  formData.append("summary", summary);
+  formData.append("description", content);
+  console.log(categories)
   const dispatch = useDispatch();
 
-  
   const uploadNews = async (e) => {
     e.preventDefault();
     const options = {
@@ -38,15 +34,14 @@ const WritePage = () => {
     };
     const data = await dispatch(apiCalling(options));
 
-    if (data.success) {
-      toast.success(data.message);
-     
+    if (data?.success) {
+      toast.success(data?.message);
     } else {
       toast.error(data.message);
     }
   };
 
-  
+  console.log(file);
 
   return (
     <div className="p-[4rem] bg-[#6b6b746a] flex flex-col gap-[4rem]  items-center w-full ">
@@ -75,11 +70,14 @@ const WritePage = () => {
               className="text-[1.8rem] font-[600] px-[1.5rem] py-[1rem] foucus:border-none focus:outline-none  border-[#00000022] focus:border-[2px] bg-[#00000089] text-[white] focus:border-[#015107] focus:rounded-[.75rem]  rounded-t-[.5rem]  border-[blue] border-b-[2px] w-full placeholder:text-gray-600"
               onChange={(e) => setCategory(e.target.value)}
             >
-              {
-                categories.length > 0 && categories.map((cate) => {
-                  return  <option key={cate} value={cate}>{cate}</option>
-                })
-              }
+              {categories.length > 0 &&
+                categories.map((cate) => {
+                  return (
+                    <option key={cate} value={cate}>
+                      {cate}
+                    </option>
+                  );
+                })}
             </select>
           </div>
           <div id="content" className="flex flex-col w-full">
@@ -92,6 +90,7 @@ const WritePage = () => {
               name=""
               rows={2}
               id=""
+              value={content}
             ></textarea>
           </div>
         </div>
@@ -115,7 +114,7 @@ const WritePage = () => {
             <label
               className="text-[1.8rem] px-[2rem] py-[1rem] flex gap-[5rem] justify-center items-center border-[.5px] rounded-[1rem] hover:cursor-pointer"
               htmlFor="file1"
-              id="fil"
+              id="file"
             >
               <FaCloudUploadAlt size={"5rem"} />
               <p>Upload image for news</p>
@@ -126,7 +125,7 @@ const WritePage = () => {
               name=""
               id="file1"
               multiple
-              onInput={(e) => setFile(e.target.files)}
+              onInput={(e) => setFile(e.target.files[0])}
             />
           </div>
           <div

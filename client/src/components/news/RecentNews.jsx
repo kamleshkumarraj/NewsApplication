@@ -1,12 +1,15 @@
 import React from 'react'
 import Title from '../Title'
 import NewsCard from './items/NewsCard'
-import { news } from '../../data'
+import { useSelector } from 'react-redux'
+import { getAllNews, getAllNewsCategories } from '../../store/slices/NewsHandling.slices'
+
 
 
 const RecentNews =  () => {
-const [recentNewsCate] = Object.keys(news);
-const newsData = news[recentNewsCate]
+    const news = useSelector(getAllNews)
+    const categories = useSelector(getAllNewsCategories)
+    const newsData =  Object.keys(news).length > 0 && categories.length > 0 && news[categories[categories.length -1]];
 
     return (
         <div className="w-full flex flex-col gap-y-[14px] bg-white pt-4">

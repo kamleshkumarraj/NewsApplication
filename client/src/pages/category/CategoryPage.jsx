@@ -1,17 +1,19 @@
-import React from "react";
-import { news } from "../../data/index.js";
+
 import { useLocation } from "react-router-dom";
 import Breadcrumb from "../../components/Breadcrumb.jsx";
 import SimpleDetailsNewCard from "../../components/news/items/SimpleDetailsNewCard.jsx";
-import SearchNews from "../../components/news/SearchNews.jsx";
+
 import RecentNews from "../../components/news/RecentNews.jsx";
 import Category from "../../components/Category.jsx";
 import PopularNews from "../../components/news/PopularNews.jsx";
+import { useSelector } from "react-redux";
+import { getAllNews } from "../../store/slices/NewsHandling.slices.js";
 const CategoryNews = () => {
   const location = useLocation();
   const category = location.state;
   console.log(category);
-  const newses = news[category];
+  const news = useSelector(getAllNews)
+  const newses = Object.keys(news).length > 0 && news[category];
 
   return (
     <div>

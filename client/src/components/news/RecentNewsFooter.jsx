@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { news } from "../../data";
+import { getAllNews } from "../../store/slices/NewsHandling.slices";
 
 const RecentNewsFooter = () => {
-  const newsData = news['Sports'].slice(0,4);
+  const news = useSelector(getAllNews)
+  const newsData = Object.keys(news).length > 0 && news['Sports'].slice(0,4);
 
   return (
     <div className="w-full flex flex-col gap-y-[14px]">

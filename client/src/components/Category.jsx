@@ -1,20 +1,11 @@
-import React from "react";
+
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { news } from "../data";
+import { getAllNewsCategories } from "../store/slices/NewsHandling.slices";
+
 
 const Category = ({ titleStyle }) => {
-  const categories = [
-    "Sports",
-    "Educations",
-    "Politics",
-    "Agriculture",
-    "Technology",
-    "International",
-    "Health",
-    "Disaster",
-    "Entertainement & Culture",
-    "Bussiness & Economy",
-  ];
+  const categories = useSelector(getAllNewsCategories)
 
   return (
     <div className="w-full flex flex-col sm:gap-y-[14px]">

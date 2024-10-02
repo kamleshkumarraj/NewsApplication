@@ -9,7 +9,7 @@ import { setUser } from "../../store/slices/selfHandler.slice";
 import loginImg from "../../assets/Images/reporter img.jpg";
 import { useGoogleLogin } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
-pa
+
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -71,22 +71,22 @@ function Login() {
   return (
     <div
       id="loginContainer"
-      className="w-full min-h-screen  flex items-start justify-start p-10 bg-cover bg-center overflow-hidden"
+      className="flex items-start justify-start w-full min-h-screen p-10 overflow-hidden bg-center bg-cover"
       style={{
         backgroundImage: `url('https://img.freepik.com/premium-photo/breaking-news-graphic-with-red-background-dark-red-text_1106493-468434.jpg?w=1060')`,
       }}
     >
-      <div className="grid w-full max-w-6xl place-content-center pt-16 mt-10">
+      <div className="grid w-full max-w-6xl pt-16 mt-10 place-content-center">
         <div
           id="login-page"
-          className="grid lg:grid-cols-2 grid-cols-1 gap-10 bg-white rounded-lg shadow-lg p-10"
+          className="grid grid-cols-1 gap-10 p-10 bg-white rounded-lg shadow-lg lg:grid-cols-2"
         >
           {/* Image Section */}
           <div id="img" className="hidden lg:block">
             <img
               src={loginImg}
               alt="Login"
-              className="rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+              className="transition-transform duration-300 transform rounded-lg shadow-lg hover:scale-105"
               style={{ backdropFilter: `blur(2px)` }}
             />
           </div>
@@ -94,7 +94,7 @@ function Login() {
           <div id="form" className="grid w-full place-content-center">
             <form
               onSubmit={handleLogin}
-              className="w-full flex flex-col gap-6 mt-4 border border-gray-300 p-8 rounded-lg shadow-md"
+              className="flex flex-col w-full gap-6 p-8 mt-4 border border-gray-300 rounded-lg shadow-md"
               style={{
                 boxShadow: `rgba(0, 0, 0, 0.1) 0px 4px 10px`,
               }}
@@ -129,7 +129,7 @@ function Login() {
               </Link>
               <button
                 type="submit"
-                className="w-full py-4 rounded-lg text-white font-semibold transition-all duration-300 hover:scale-105 shadow-md"
+                className="w-full py-4 font-semibold text-white transition-all duration-300 rounded-lg shadow-md hover:scale-105"
                 style={{
                   fontSize: "1.8rem",
                   background: `linear-gradient(45deg , #5468FF ,#59C3FF)`,
@@ -140,8 +140,8 @@ function Login() {
                   <div className="loader absolute left-[75%]"></div>
                 )}
               </button>
-              <p className="font-medium text-center text-xl">OR</p>
-              <Link to="/signin" className="text-xl text-center font-medium">
+              <p className="text-xl font-medium text-center">OR</p>
+              <Link to="/signin" className="text-xl font-medium text-center">
                 Already have an account?
                 <span className="text-[#4a4b49] hover:text-[#1943ff] ml-1">
                   Register Now
@@ -154,7 +154,7 @@ function Login() {
                 onClick={googleLogin}
               >
                 <FcGoogle size="3rem" />
-                <span className="text-white text-xl">
+                <span className="text-xl text-white">
                   {apiResponse?.apiStatus === true
                     ? "Submitting..."
                     : "Login with Google"}

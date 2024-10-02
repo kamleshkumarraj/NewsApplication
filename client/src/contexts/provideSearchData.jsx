@@ -1,13 +1,15 @@
 import { createContext, useEffect, useState } from "react"
-import useSearch from "../hooks/useSearch"
-import { news } from "../data"
-import {useDispatch} from 'react-redux'
+
+import {useDispatch, useSelector} from 'react-redux'
 import { apiCalling } from "../api/apiCalling.api"
+import { getAllNews } from "../store/slices/NewsHandling.slices"
+import useSearch from "../hooks/useSearch"
 
 export const SearchDataContext = createContext()
 
 
 function SearchDataProvider({children}) {
+  const news = useSelector(getAllNews)
     const [filteredData , setSearchQuery] = useSearch(news , (data) => data.title)
     const [recentNewsData , setNewsData] = useState([]);
     const dispatch = useDispatch()

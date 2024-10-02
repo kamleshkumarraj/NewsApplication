@@ -9,9 +9,10 @@ export const cerateNews = asyncHandler(async (req , res , next) => {
     const newsData = {title , content , summary , category , id : req.user.id}
     let image;
     console.log(req.file.path)
-    const res = fileUploadOnCloudinary(req.file.path)
-    if(res == null) return next(new ErrorHandler("Image upload failed ",400))
-    req.body.image = res.url;
+    const response = await fileUploadOnCloudinary(req.file.path)
+    console.log(response)
+    if(response == null) return next(new ErrorHandler("Image upload failed ",400))
+    req.body.image = response.secure_url;
     
     const news = await newsModels.create(req.body)
     if(!news) return next(new ErrorHandler("News creation failed !",402))

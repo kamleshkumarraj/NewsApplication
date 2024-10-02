@@ -6,4 +6,4 @@ import { upload } from "../../middlewares/uploading/fileUploading.middleware.js"
 
 export const newsHandleByAdminRoute = Router();
 
-newsHandleByAdminRoute.route('/uploads-news').post(isLoggedIn , isAuthor , upload.array('newsImg') , cerateNews)
+newsHandleByAdminRoute.route('/uploads-news').post(isLoggedIn , isAuthor , upload.single('newsImg') , cerateNews)

@@ -1,13 +1,19 @@
-import React from "react";
-import { news } from "../../data";
+
+import { useSelector } from "react-redux";
+import { getAllNews } from "../../store/slices/NewsHandling.slices";
 
 const Gallery = () => {
   const images = [];
-  Object.entries(news).forEach(([key , val]) => {
+  const news = useSelector(getAllNews)
+  Object.keys(news).length > 0 &&  Object.entries(news).forEach(([key , val]) => {
     images.push(val[0].image)
   })
 
   return (
+    <>
+    {
+      
+    Object.keys(news).length > 0 &&
     <div className="w-full flex flex-col gap-y-[14px]">
       <div className="text-[2rem] font-bold text-white relative before:absolute before:w-[4px] before:bg-[#c80000] before:h-full before:-left-0 pl-3">
         Gallery
@@ -22,6 +28,8 @@ const Gallery = () => {
           ))}
       </div>
     </div>
+        }
+    </>
   );
 };
 

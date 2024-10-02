@@ -2,12 +2,12 @@ import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SearchDataProvider from "./contexts/provideSearchData";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { apiCalling } from "./api/apiCalling.api";
 import { setUser } from "./store/slices/selfHandler.slice";
 import { getAllNewsCategories, setNewsCategories, setNewsList } from "./store/slices/NewsHandling.slices";
-import { news } from "./data";
+
 import axios from "axios";
 
 

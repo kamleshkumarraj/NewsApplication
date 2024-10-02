@@ -14,6 +14,7 @@ import { getAllNews, getAllNewsCategories } from "../store/slices/NewsHandling.s
 const Home = () => {
   const news = useSelector(getAllNews)
   const allCategories = useSelector(getAllNewsCategories)
+  
   return (
     <>
     {
@@ -32,7 +33,7 @@ const Home = () => {
                 <div className="flex w-full flex-col gap-y-[14px] pl-0 lg:pl-2">
                   <Title title="Recent" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px] rounded-[1rem] overflow-hidden">
-                    {Object.keys(news).length > 0 &&  news[allCategories[0]].map((item, i) => {
+                    {Object.keys(news).length > 0 &&  news[allCategories[allCategories.length-1]].map((item, i) => {
                       if (i < 4) {
                         return <SimpleNewsCard item={item} key={i} />;
                       }

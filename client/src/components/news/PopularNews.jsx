@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux';
 import Title from '../Title'
 import SimpleDetailsNewCard from './items/SimpleDetailsNewCard'
-import { news } from '../../data/index.js'
+import { getAllNews } from '../../store/slices/NewsHandling.slices';
+
 
 const PopularNews = ({ type}) => {
-    const popularNews = news['Agriculture'];
+    const news = useSelector(getAllNews)
+    const popularNews = Object.keys(news).length > 0 && news['Agriculture'];
     
     return (
         <div className='w-full pb-8 mt-5'>
@@ -11,6 +14,7 @@ const PopularNews = ({ type}) => {
                 <Title title="Popular news" />
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-3 sm:gap-3 lg:gap-x-3'>
                     {
+                        PopularNews &&
                         popularNews.length > 0 && popularNews.map((item, i) => {
                             if (i < 4) {
                                 return <SimpleDetailsNewCard news={item} type={type} item={item} key={i} height={230} />

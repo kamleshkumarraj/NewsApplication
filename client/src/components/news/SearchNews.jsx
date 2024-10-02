@@ -1,6 +1,4 @@
 import { useContext } from "react"
-import { news } from "../../data"
-import useSearch from "../../hooks/useSearch"
 import SimpleDetailsNewCard from "./items/SimpleDetailsNewCard"
 import { SearchDataContext } from "../../contexts/provideSearchData"
 
