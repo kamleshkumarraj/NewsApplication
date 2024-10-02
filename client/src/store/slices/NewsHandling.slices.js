@@ -3,7 +3,8 @@ import {createSlice} from '@reduxjs/toolkit'
 const slice = createSlice({
     name : 'news',
     initialState : {
-        news : {}
+        news : {},
+        newsCategories : [],
     },
     reducers : {
         setNewsList : (state , action) => {
@@ -19,11 +20,14 @@ const slice = createSlice({
             })
            
             
+        },
+        setNewsCategories : (state , action) => {
+            state.newsCategories = action.payload;
         }
         
     }
 })
 
 export const newsHandlerSlice = slice.reducer
-export const {changeLanguage , setNewsList} = slice.actions
+export const {changeLanguage , setNewsList , setNewsCategories} = slice.actions
 export const getAllNews = (state) => state.newsList.news
