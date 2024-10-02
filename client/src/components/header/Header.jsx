@@ -1,9 +1,5 @@
 
 import styles from "./header.module.css";
-// import facebookImg from '../../assets/Images/facebook.png'
-// import instagramImg from '../../assets/Images/instagram.png'
-// import youtubeImg from '../../assets/Images/youtube.png'
-// import { FaBarsStaggered } from "react-icons/fa6";
 import AuthLinks from "../authLinks/AuthLinks";
 import {useGSAP} from '@gsap/react'
 import gsap from "gsap";
@@ -55,12 +51,7 @@ const BlogHeader = () => {
     
   return (
     <div className={styles.container} >
-      {/* <div id="nav-image" className={styles.social}>
-        <img src={facebookImg} alt="facebook" width={24} height={24} />
-        <img src={instagramImg} alt="instagram" width={24} height={24} />
-        <img src={facebookImg} alt="tiktok" width={24} height={24} />
-        <img src={youtubeImg} alt="youtube" width={24} height={24} />
-      </div> */}
+      
       <div id="header-link" className={styles.links}>
       <div className="relative inline-block">
       {/* Menu Button */}

@@ -1,9 +1,11 @@
-
 import logo from "../assets/Images/compLogo.jpg";
 import Category from "./Category";
 import Gallery from "./news/Gallery";
 import RecentNewsFooter from "./news/RecentNewsFooter";
 import { Link } from "react-router-dom";
+import facebookImg from "../assets/Images/facebook.png";
+import instagramImg from "../assets/Images/instagram.png";
+import youtubeImg from "../assets/Images/youtube.png";
 
 const Footer = () => {
   return (
@@ -19,19 +21,126 @@ const Footer = () => {
                 src={logo}
                 alt="logo"
               />
-              <h2 className="text-slate-300">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book.
+              <h2
+                className="text-white"
+                style={{
+                  fontSize: "20px",
+                  fontWeight: "bold",
+                  lineHeight: "1.4",
+                }}
+              >
+                Stay Connected with the Pulse of Bangladesh
+                <span
+                  style={{
+                    display: "block",
+                    fontSize: "12px",
+                    marginTop: "10px",
+                    color: "white",
+                  }}
+                >
+                  We are committed to delivering accurate, timely, and
+                  comprehensive news in Bangla, covering everything from
+                  breaking headlines to in-depth analysis. Whether it&apos;s
+                  local stories that matter to you or global events, we ensure
+                  you’re always informed and engaged with the latest
+                  developments. Stay rooted to your heritage and informed about
+                  the world with us.
+                </span>
               </h2>
-              <h2 className="text-slate-300">
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. It has roots in a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard McClintock, a
-                Latin professor at Hampden-Sydney College in Virginia, looked up
-                one of the more obscure Latin words, consectetur.
+              <hr
+                style={{
+                  borderColor: "red",
+                  borderWidth: "2px",
+                  marginBottom: "1px",
+                }}
+              />
+              <h2
+                style={{
+                  color: "white",
+                  fontSize: "32px",
+                  marginBottom: "2px",
+                }}
+              >
+                Contact Us
               </h2>
+              <div style={{ display: "flex", gap: "15px" }}>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={facebookImg}
+                    alt="facebook"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.transform = "scale(1)")
+                    }
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={instagramImg}
+                    alt="instagram"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.transform = "scale(1)")
+                    }
+                  />
+                </a>
+                <a
+                  href="https://www.tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={facebookImg}
+                    alt="tiktok"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.transform = "scale(1)")
+                    }
+                  />
+                </a>
+                <a
+                  href="https://www.youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={youtubeImg}
+                    alt="youtube"
+                    width={24}
+                    height={24}
+                    style={{ cursor: "pointer", transition: "transform 0.3s" }}
+                    onMouseEnter={(e) =>
+                      (e.target.style.transform = "scale(1.2)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.target.style.transform = "scale(1)")
+                    }
+                  />
+                </a>
+              </div>
             </div>
           </div>
           <Gallery />
@@ -47,7 +156,6 @@ const Footer = () => {
             <span className="text-center">Copyright © All right reserved</span>
             <Link href={"#"}>www.ajkerkotha.com</Link>
           </div>
-          
         </div>
       </div>
     </div>
