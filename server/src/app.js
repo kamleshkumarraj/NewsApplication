@@ -19,7 +19,7 @@ app.use(cookieParser())
 
 //use middleware for allow fronted url and request method with cookies
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173' , 'https://news-application-fronted.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true,
 }))
