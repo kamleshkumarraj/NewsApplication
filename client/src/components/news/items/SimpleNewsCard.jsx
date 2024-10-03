@@ -18,7 +18,7 @@ const SimpleNewsCard = ({ item, type }) => {
         <div className="px-[10px] py-[5px] rounded-[2px] text-[14px] bg-[#c80000]">
           {item.category}
         </div>
-        <Link to={`/category/page&id=${item.id}`}
+        <Link to={`/category/page&id=${item._id}`}
         state={item} className="text-[1.6rem]">
           {item.title}
         </Link>

@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { apiCalling } from "./api/apiCalling.api";
 import { setUser } from "./store/slices/selfHandler.slice";
-import { getAllNewsCategories, setNewsCategories, setNewsList } from "./store/slices/NewsHandling.slices";
+import { getAllNewsCategories, setNewsCategories, setNewsList, setPopularNews, setRecentNews } from "./store/slices/NewsHandling.slices";
 
 import axios from "axios";
 
@@ -59,6 +59,23 @@ function App() {
         const response = await dispatch(apiCalling(options))
         if(response?.success) dispatch(setNewsCategories(response?.data))
         else console.log("We getting error during fetching news categories from server !")
+    })()
+  },[])
+
+  //! code for getting all popular news and recent news and also save in store.
+  useEffect(() => {
+    (async function getAllRecentPopularNews(){
+      const list = ['popular-news' , 'recent-news']
+      const newsList = list.map((item) => {
+        const options = {
+          url : `http://localhost:5000/api/v1/news/${item}`,
+          method : "GET"
+        }
+        return axios(options)
+      })
+      const news = await Promise.all(newsList)
+      dispatch(setPopularNews(news[0].data.data))
+      dispatch(setRecentNews(news[1].data.data))
     })()
   },[])
   

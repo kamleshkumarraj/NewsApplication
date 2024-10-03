@@ -36,7 +36,7 @@ app.use('/api/v1/admin/',userHandleByAdminRoute)
 // news handle for common use.
 app.use('/api/v1/news/' , userServiceHandlerRoute)
 
-app.use
+
 
 //use middleware for handling errors
 app.use((err , req , res , next) => {

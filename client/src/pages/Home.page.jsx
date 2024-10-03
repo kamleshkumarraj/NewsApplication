@@ -8,13 +8,14 @@ import SimpleNewsCard from "../components/news/items/SimpleNewsCard";
 import LatestNews from "../components/news/LatestNews";
 import PopularNews from "../components/news/PopularNews";
 import Title from "../components/Title";
-import { getAllNews, getAllNewsCategories } from "../store/slices/NewsHandling.slices";
+import { getAllNews, getAllNewsCategories, getPopularNews, getRecentNews } from "../store/slices/NewsHandling.slices";
 
 
 const Home = () => {
   const news = useSelector(getAllNews)
-  const allCategories = useSelector(getAllNewsCategories)
-  
+  const recentNews = useSelector(getRecentNews)
+  const popularNews = useSelector(getPopularNews)
+  console.log(recentNews)
   return (
     <>
     {
@@ -27,13 +28,13 @@ const Home = () => {
           <div className="px-[1.6rem] py-8 md:px-8">
             <div className="flex flex-wrap ">
               <div className="w-full lg:w-6/12">
-                <LatestNews news={news["Educations"]} />
+                { popularNews.length > 0 && <LatestNews news={popularNews} />}
               </div>
               <div className="w-full mt-5 lg:w-6/12 lg:mt-0">
                 <div className="flex w-full flex-col gap-y-[14px] pl-0 lg:pl-2">
                   <Title title="Recent" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-[14px] rounded-[1rem] overflow-hidden">
-                    {Object.keys(news).length > 0 &&  news[allCategories[allCategories.length-1]].map((item, i) => {
+                    {recentNews.length > 0 && recentNews.map((item, i) => {
                       if (i < 4) {
                         return <SimpleNewsCard item={item} key={i} />;
                       }

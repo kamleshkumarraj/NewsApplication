@@ -4,7 +4,7 @@ import {convert} from 'html-to-text'
 import PropTypes from 'prop-types'
 
 const SimpleDetailsNewCard = ({ news, type, height }) => {
-  const description = 'Bangladesh and its people are living in a state of emergency. The country is facing a crisis of coronavirus, which has caused tremendous damage to the economy and healthcare system. The government has taken several measures to contain the spread of the virus, but the situation is still evolving. The country is in a state of crisis, and the people are facing many challenges.'
+ 
   return (
     
     <div className="bg-white shadow">
@@ -26,7 +26,7 @@ const SimpleDetailsNewCard = ({ news, type, height }) => {
       <div className="p-5">
         <Link
           className="lg:text-[18px] text-[15px] font-semibold text-[#333333] hover:text-[#c80000]"
-          to={`/category/page&id=${news.id}`}
+          to={`/category/page&id=${news._id}`}
           state={news}
         >
           {news?.title}
@@ -38,7 +38,7 @@ const SimpleDetailsNewCard = ({ news, type, height }) => {
         {type === "details-news" && (
           <p className="pt-3 text-[12px] text-slate-600">
             {
-              convert(description).slice(0, 200)
+              convert(news?.description).slice(0, 200)
               // 'Hii here is converter funuction'
             }
           </p>
@@ -58,6 +58,7 @@ SimpleDetailsNewCard.propTypes = {
     title: PropTypes.string,
     date: PropTypes.string,
     writerName: PropTypes.string,
+    description : PropTypes.string
   }),
   height: PropTypes.number,
   type: PropTypes.string 

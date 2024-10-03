@@ -23,7 +23,7 @@ const NewsCard = ({ item }) => {
           {item?.category}
         </Link>
         <Link
-          to={`/category/page&id=${item.id}`}
+          to={`/category/page&id=${item._id}`}
           state={item}
           className="text-[1.4rem] font-semibold text-[#333333] hover:text-[#c80000]"
         >

@@ -42,10 +42,16 @@ const newsSchema =  new mongoose.Schema({
             type : String
         }
     },
+   
     comment : [{
-        creater : {
-            type : mongoose.Schema.ObjectId,
-            ref : "usersModels"
+        creator : {
+            name : {
+                type : String
+            },
+            image : {
+                type : String
+            }
+            
 
         },
         content : {

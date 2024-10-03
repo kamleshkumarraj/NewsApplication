@@ -1,21 +1,43 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./comments.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllNews } from "../../store/slices/NewsHandling.slices";
+import { useState } from "react";
+import { apiCalling } from "../../api/apiCalling.api";
+import {toast} from 'react-toastify'
+import { getSelf } from "../../store/slices/selfHandler.slice";
 
 
 
-const Comments = () => {
-
-  const data = [
-    {user : {name : 'Kamlesh8603416388@', age : 45 , image : 'https://res.cloudinary.com/photouploading/image/upload/v1726849736/zyi8lanf7mkd72iymnnj.jpg'} , createdAt : '12/05/2024' , desc : 'दुनिया के सारे सुख एक तरफ और मोदीजी को देखने और सुनने का सुख एक तरफ। Most handsom, Most charming, Most Loveble pm Modi ji ❤❤❤❤❤❤❤❤❤❤❤🚩🚩🚩🚩🚩❤❤❤❤❤❤❤'},
-    {user : {name : 'Deepak8603416388@', age : 45 , image : 'https://res.cloudinary.com/photouploading/image/upload/v1725088740/nhrziorngzy9mmugyttl.png'} , createdAt : '12/05/2024' , desc : 'This news is really very interesting and very informative. I really enjoyed reading it. and I would recommend it to everyone. I would like to share my thoughts on this topic with you.'},
-    {user : {name : 'Dheeraj8603416388@', age : 45 , image : 'https://res.cloudinary.com/photouploading/image/upload/v1725082562/gldru3x48yzwsvaat3ny.png'} , createdAt : '12/05/2024' , desc : '❤❤❤❤🎉तीसरी बार सीएम श्री नायब सैनी जी के नेतृत्व में तीसरी बार भाजपा की दमदार ईमानदार सरकार ❤❤❤❤🎉।❤❤❤❤🎉कमल खिलेगा ❤❤❤❤🎉।❤❤❤❤🎉जय श्री राम ❤❤❤❤🎉।❤❤❤❤🎉नमो नमो भारत वंदेमातरम ❤❤❤❤🎉।.'},
-    {user : {name : 'Kishan8603416388@', age : 45 , image : 'https://res.cloudinary.com/photouploading/image/upload/v1725081981/algauiasulm4vv50jwwq.png'} , createdAt : '12/05/2024' , desc : 'This news is really very interesting and very informative. जय जय श्री राम जय श्री बजरंग मोदी जी को कोटि कोटि प्रणाम विकसित भारत मोदी जी तुम आगे बढ़ो हम सभी आपके साथ है'},
-    {user : {name : 'Krishna8603416388@', age : 45 , image : 'https://res.cloudinary.com/photouploading/image/upload/v1725081682/szaemqibzed9rxdcgrku.png'} , createdAt : '12/05/2024' , desc : 'Dear Haryana people, think and vote for development with full majority to one party admn. Keep away corrupt candidates. 🌹🌹'},
+const Comments = ({comments , id}) => {
+  const navigate = useNavigate()
+  const [comment , setComment] = useState("");
+  const dispatch = useDispatch();
+  const [data , setData] = useState(comments)
+  console.log(id)
+  let user = useSelector(getSelf)
+  if(Object.keys(user).length > 0){
+    user = 'authenticated'
+  }else user = 'unauthintacated'
+  const createComment = async (e) => {
+    if(user == 'unauthintacated') navigate('/login')
+    e.preventDefault();
+    const options = {
+      url : `http://localhost:5000/api/v1/news/create-comment/${id}`,
+      formData : {comment},
+      method : "POST",
+      contentType : "application/json"
+    }
+    const response = await dispatch(apiCalling(options));
+    if(response?.success){
+      toast.success(response.message);
+      setData(response.data);
+    }else toast.error(response?.message)
     
-    {user : {name : 'Nitish8603416388@', age : 45 , image : 'https://res.cloudinary.com/photouploading/image/upload/v1725089094/zoggl6bmnnavhos6wizd.png'} , createdAt : '12/05/2024' , desc : 'भारत वासियों मै बनारसी हूँ अगर कांग्रेस की कहीं भी सरकार बनेगी तो वह राज्य निश्चित ही पाकिस्तान बन जायेगा जय श्री राम 👏❤️💐🙏'},
-    
-  ];
+  }
+  
+  console.log(comments)
   const status = "authenticated";
   const isLoading = false;
   return (
@@ -26,9 +48,10 @@ const Comments = () => {
           <textarea
             placeholder="write a comment..."
             className={styles.input}
-            
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
           />
-          <button className={styles.button} >
+          <button onClick={createComment} className={styles.button} >
             Send
           </button>
         </div>
@@ -38,31 +61,34 @@ const Comments = () => {
       <div className={styles.comments}>
         {isLoading
           ? "loading"
-          : data?.map((item , i) => (
-              <div className='my-[5rem]' key={i}>
+          : data?.map(({content , creator} , i) => (
+              content.map((message , i) => {
+               return <div className='my-[2rem]' key={i}>
                 <div className='flex gap-[5rem] w-full'>
                   <div id="user" className="flex w-full gap-[1rem] items-start">
-                  {item.user.image && (
+                  {creator.image && (
                     <div id="img" className="min-w-[6rem]   min-h-[6rem] ">
                     <img
-                  src={item?.user?.image}
+                  src={creator.image}
                   alt=""
                   className="w-[5rem] h-[5rem] rounded-full"
                   />
                 </div>
               )}
               <div >
-                <span className="font-[600] text-[1.8rem]" >{item.user.name}</span>
-                <p className="font-[500] text-[1.4rem] text-[#484747d7]" >{item.desc}</p>
+                <span className="font-[600] text-[1.8rem]" >{creator.name}</span>
+                <p className="font-[500] text-[1.4rem] text-[#484747d7]" >{message}</p>
               </div>
                   </div>
                     
                   <div id="date" className="ml-auto">
-                   <span className={styles.date}>{item.createdAt}</span>
+                   <span className={styles.date}>{}</span>
                   </div>
                 </div>
                 
               </div>
+              })
+              
             ))}
       </div>
     </div>

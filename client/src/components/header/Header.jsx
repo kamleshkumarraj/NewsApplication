@@ -10,6 +10,7 @@ import profileImg from '../../assets/Images/profile-photo.png'
 import { useState } from "react";
 import { TbWorld } from "react-icons/tb";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 
 
@@ -93,9 +94,9 @@ const BlogHeader = () => {
     </div>
         <AuthLinks  />
         
-        <div id="profile-img">
+        <Link to={'/profile-page'} id="profile-img">
           <img src={userImg ? userImg : profileImg} className="w-[4rem] h-[4rem] rounded-full" alt="" />
-        </div>
+        </Link>
         <div id="bar"></div>
       </div>
     </div>

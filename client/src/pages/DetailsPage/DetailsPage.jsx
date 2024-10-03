@@ -17,8 +17,8 @@ const Details = () => {
   const newsData = useLocation().state;
   const news = useSelector(getAllNews)
   const relateNews = news[newsData.category];
-  
-  
+ 
+  console.log(newsData)
   const printableComponent = useRef();
 
   const descriptionTag = useRef();
@@ -26,16 +26,13 @@ const Details = () => {
   const handlePrint = useReactToPrint({
     contentRef : printableComponent
   })
-  console.log(printableComponent)
   
   
   return (
   <>
   {
-   relateNews.length > 0 && 
+   relateNews && relateNews.length > 0 && 
     <div>
-    
-    
       <div className="py-4 bg-white shadow-sm">
         <div className="w-full px-[1.6rem] md:px-8">
           <Breadcrumb
@@ -54,7 +51,7 @@ const Details = () => {
                 <News ref = {printableComponent} newsData = {newsData} descriptionTag = {descriptionTag} />
                 </div>
               <div id="comment-section" className="px-[2rem]">
-                <Comments />
+                <Comments comments={newsData.comment} id={newsData._id} />
               </div>
             </div>
             <div className="w-full xl:w-4/12">

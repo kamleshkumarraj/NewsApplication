@@ -12,7 +12,7 @@ import React from "react";
           {newsData?.title}
         </h2>
         <div className="flex text-[1.6rem] font-normal gap-x-2 text-slate-600">
-          <span>{newsData?.date}/</span>
+          <span>{newsData?.date}</span>
           <span>{newsData?.writerName}</span>
         </div>
         <p ref={descriptionTag} className="text-[1.4rem]">

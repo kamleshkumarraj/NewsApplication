@@ -9,6 +9,7 @@ import { setUser } from "../../store/slices/selfHandler.slice";
 import loginImg from "../../assets/Images/reporter img.jpg";
 import { useGoogleLogin } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
+import companyLogo from '../../assets/Images/compLogo.jpg'
 
 
 function Login() {
@@ -100,7 +101,7 @@ function Login() {
               }}
             >
               <div className="flex justify-center">
-                <img src={companylogo} alt="Company Logo" className="w-48" />
+                <img src={companyLogo} alt="Company Logo" className="w-48" />
               </div>
               <h3
                 className="text-4xl font-semibold text-center text-gray-800"
