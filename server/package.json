@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node --watch src/index.js",
+    "start": "node src/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kamlesh Kumar",
@@ -23,5 +23,6 @@
     "mongoose": "^8.6.3",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.15"
-  }
+  },
+  "devDependencies": {}
 }
