@@ -21,7 +21,7 @@ const WritePage = () => {
   formData.append("category", category);
   formData.append("summary", summary);
   formData.append("description", content);
-  console.log(categories)
+ 
   const dispatch = useDispatch();
 
   const uploadNews = async (e) => {
@@ -41,7 +41,7 @@ const WritePage = () => {
     }
   };
 
-  console.log(file);
+ 
 
   return (
     <div className="p-[4rem] bg-[#6b6b746a] flex flex-col gap-[4rem]  items-center w-full ">

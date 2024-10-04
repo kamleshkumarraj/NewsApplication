@@ -18,13 +18,23 @@ const newsSchema =  new mongoose.Schema({
         default : 'draft',
        
     },
+    likeCount : {
+        type : Number,
+        default : 0
+    },
     category : {
         type : String,
-        required  :true
+        required : true
     },
+    views : [{
+        viewCreator : {
+            type : mongoose.Schema.ObjectId,
+            ref : "usersModel"
+        }
+    }],
     viewCount : {
         type : Number,
-        default : 0,
+        default : 0
     },
     commentCount : {
         type : Number,
@@ -34,6 +44,7 @@ const newsSchema =  new mongoose.Schema({
         type : String,
         required : true
     },
+    
     featureImage : {
         publicId :{
              type : String,

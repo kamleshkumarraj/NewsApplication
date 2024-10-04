@@ -15,7 +15,7 @@ export const createComment = asyncHandler(async (req , res , next) => {
     const alreadyCommented = async () => {
         return await news.comment.find((coment) => coment.creator.name === req.user.username)
     }
-   console.log("matched is",await alreadyCommented())
+   
     if(await alreadyCommented()){
         
         news.comment.forEach((coment) => {
@@ -26,7 +26,7 @@ export const createComment = asyncHandler(async (req , res , next) => {
                 }
         })
     }else{
-        console.log(false)
+       
         news.comment.unshift(commentData)
         news.commentCount += 1;
     }

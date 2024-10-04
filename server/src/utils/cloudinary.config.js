@@ -14,7 +14,7 @@ export const fileUploadOnCloudinary = async (filepath) => {
         return response
     }catch(err){
        const res =  await fs.unlinkSync(filepath)
-       console.log(res)
+      
        return null
     }
 }

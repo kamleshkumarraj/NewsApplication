@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
 import { getSelf } from "../store/slices/selfHandler.slice";
+import { useNavigate } from "react-router-dom";
 
 
 const ProfilePage = () => {
     const user = useSelector(getSelf)
     const name = user?.firstname + " " + user?.lastname 
+    const navigate = useNavigate()
+    if(!user?.firstname) navigate('/login') 
   return (
     <div className="py-[4rem] p-4 bg-gray-100">
       <div className="max-w-3xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg">

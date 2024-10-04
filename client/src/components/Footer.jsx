@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import facebookImg from "../assets/Images/facebook.png";
 import instagramImg from "../assets/Images/instagram.png";
 import youtubeImg from "../assets/Images/youtube.png";
-
+import twitterImg from '../assets/Images/twitter-circle.png'
 const Footer = () => {
   return (
     <div className="w-full">
@@ -70,10 +70,10 @@ const Footer = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src={facebookImg}
-                    alt="facebook"
-                    width={24}
-                    height={24}
+                    src={twitterImg}
+                    alt="twitter"
+                    width={30}
+                    height={30}
                     style={{ cursor: "pointer", transition: "transform 0.3s" }}
                     onMouseEnter={(e) =>
                       (e.target.style.transform = "scale(1.2)")

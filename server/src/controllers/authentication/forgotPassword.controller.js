@@ -15,14 +15,14 @@ export const forgotPassword = asyncHandler(async (req , res , next) => {
     //! code for getting fronted hostname and port.
     const origin = req.get('origin')
     const referer = req.get('referer')
-    console.log("hii")
+   
 
     // const url = new URL(origin)
 
     const hostname = 'localhost';
     const port = 3000
     const protocol = 'http'
-    console.log("hii")
+   
     //! now we create link for sending email with reset password token
     const link = `${protocol}://${hostname}:${port}/api/v1/auth/reset-password/${resetPasswordToken}`
 

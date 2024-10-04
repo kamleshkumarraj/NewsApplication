@@ -52,8 +52,9 @@ const userSchema = new mongoose.Schema({
     },
     userType :{
         type : String,
-        default : 'reader',
-        enum : ['Reader' , 'Author']
+        enum : ['Reader' , 'Author'],
+        default : 'Reader',
+        
     },
     resetPasswordTocken : String,
     resetPasswordExpiry : Date,

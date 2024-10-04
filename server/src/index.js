@@ -31,5 +31,5 @@ dbConnection()
     })
 })
 .catch((err) => {
-    console.log("Server can't be statred because database connection failed !")
+    console.log("Server can't be statred because database connection failed due to this error !" , err)
 })

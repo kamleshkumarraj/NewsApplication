@@ -11,7 +11,7 @@ import { getAllNews } from "../../store/slices/NewsHandling.slices.js";
 const CategoryNews = () => {
   const location = useLocation();
   const category = location.state;
-  console.log(category);
+
   const news = useSelector(getAllNews)
   const newses = Object.keys(news).length > 0 && news[category];
 

@@ -1,4 +1,3 @@
-
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -11,7 +10,7 @@ import { userServiceHandlerRoute } from './routes/user/serviceHandling.route.js'
 export const app = express();
 
 //use middleware for accept json data and url data also.
-app.use(express.json({limit : '1000mb'}));
+app.use(express.json({limit : '2000mb'}));
 app.use(express.urlencoded({extended : true, limit : '100kb'}));
 
 //use middleware for parsing cookies

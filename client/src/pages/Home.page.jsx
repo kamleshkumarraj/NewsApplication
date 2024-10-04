@@ -8,18 +8,19 @@ import SimpleNewsCard from "../components/news/items/SimpleNewsCard";
 import LatestNews from "../components/news/LatestNews";
 import PopularNews from "../components/news/PopularNews";
 import Title from "../components/Title";
-import { getAllNews, getAllNewsCategories, getPopularNews, getRecentNews } from "../store/slices/NewsHandling.slices";
+import { getAllNews,  getPopularNews, getRecentNews } from "../store/slices/NewsHandling.slices";
+import {CirclesWithBar , Hourglass , BallTriangle , MutatingDots , RevolvingDot} from 'react-loader-spinner'
 
 
 const Home = () => {
   const news = useSelector(getAllNews)
   const recentNews = useSelector(getRecentNews)
   const popularNews = useSelector(getPopularNews)
-  console.log(recentNews)
+  
   return (
     <>
     {
-      Object.keys(news).length > 0 &&
+      Object.keys(news)?.length > 0 ?
     
     <div>
       <main>
@@ -44,7 +45,7 @@ const Home = () => {
               </div>
             </div>
 
-            <PopularNews type="Popular news" news={news["Travel"]} />
+            <PopularNews type="Agriculture" news={news["Travel"]} />
             {/* first section */}
             <div className="w-full">
               <div className="flex flex-wrap">
@@ -80,8 +81,8 @@ const Home = () => {
                 <div className="w-full lg:w-8/12">
                   <div className="pl-2">
                     <DetailsNewsRow
-                      news={news["Agriculture"]}
-                      category="Agriculture"
+                      news={news["Disaster"]}
+                      category="Disaster"
                       type="details-news"
                     />
                     <DetailsNews
@@ -119,8 +120,14 @@ const Home = () => {
           </div>
         </div>
       </main>
+    </div> : <div id="div" className="grid w-full h-full place-content-center">
+                      <div id="box" className="flex lg:my-[10rem] my-[20rem] flex-col items-center">
+                        <h1 className="text-[5rem] text-[#0000008e]">Loading....</h1>
+                        <CirclesWithBar />
+                      
+                      </div>
     </div>
-  }
+  } 
     </>
   );
 };

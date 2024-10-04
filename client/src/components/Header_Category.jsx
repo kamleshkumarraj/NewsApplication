@@ -38,12 +38,12 @@ const Header_Category = () => {
               }`}
               href={"/"}
             >
-              Home
+              Bangladesh
             </Link>
             {categories.length > 0 &&
               categories.map((c, i) => (
                 <Link
-                  key={i}
+                  key={c}
                   className={`px-[2.4rem] font-medium py-[13px] ${
                     path === c.category ? "bg-[#00000026]" : ""
                   }`}

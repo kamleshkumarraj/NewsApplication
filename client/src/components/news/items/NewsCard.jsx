@@ -16,12 +16,12 @@ const NewsCard = ({ item }) => {
         </div>
       </div>
       <div className="flex flex-col gap-y-1 w-[calc(100%-100px)] md:w-[calc(100%-160px)] lg:w-[calc(100%-100px)] pl-3">
-        <Link
-          to="category/slug"
+        <div
+        
           className="text-[1.8rem] font-semibold text-[#c80000]"
         >
           {item?.category}
-        </Link>
+        </div>
         <Link
           to={`/category/page&id=${item._id}`}
           state={item}

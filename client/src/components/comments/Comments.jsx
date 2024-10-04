@@ -2,8 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./comments.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllNews } from "../../store/slices/NewsHandling.slices";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { apiCalling } from "../../api/apiCalling.api";
 import {toast} from 'react-toastify'
 import { getSelf } from "../../store/slices/selfHandler.slice";
@@ -15,11 +14,9 @@ const Comments = ({comments , id}) => {
   const [comment , setComment] = useState("");
   const dispatch = useDispatch();
   const [data , setData] = useState(comments)
-  console.log(id)
-  let user = useSelector(getSelf)
-  if(Object.keys(user).length > 0){
-    user = 'authenticated'
-  }else user = 'unauthintacated'
+  const users = useSelector(getSelf)
+  let user = users?.firstname ? 'authenticated' : 'unauthintacated'
+  
   const createComment = async (e) => {
     if(user == 'unauthintacated') navigate('/login')
     e.preventDefault();
@@ -36,14 +33,25 @@ const Comments = ({comments , id}) => {
     }else toast.error(response?.message)
     
   }
+  useEffect(() => {
+    const options = {
+      url : `http://localhost:5000/api/v1/news/get-comments/${id}`,
+      method : 'GET'
+    };
+    (async function getAllComments() {
+        const response = await dispatch(apiCalling(options))
+        if(response?.success) setData(response?.data)
+        else console.log("Get error during fetching comment data from api !")
+    } )()
+  },[])
   
-  console.log(comments)
-  const status = "authenticated";
+  
+  
   const isLoading = false;
   return (
     <div className={styles.container} >
       <h1 className={styles.title}>Comments</h1>
-      {status === "authenticated" ? (
+      {user === "authenticated" ? (
         <div className={styles.write}>
           <textarea
             placeholder="write a comment..."
@@ -56,7 +64,7 @@ const Comments = ({comments , id}) => {
           </button>
         </div>
       ) : (
-        <Link href="/login">Login to write a comment</Link>
+        <Link className="px-[2rem] py-[1rem] border-[#0000002e] border-[.5px] rounded-[.5rem] text-[1.6rem]" to="/login">Login to write a comment</Link>
       )}
       <div className={styles.comments}>
         {isLoading
